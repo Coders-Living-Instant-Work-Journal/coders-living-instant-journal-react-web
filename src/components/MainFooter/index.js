@@ -1,45 +1,27 @@
-import React from "react";
-import {
-    Footer,
-    FooterTab,
-    Button,
-    Icon,
-    Text,
-    StyleProvider,
-    Content,
-} from "native-base";
+import React from 'react';
+import './MainFooter.scss'
+import { Nav } from 'react-bootstrap'
+import { FaBook } from 'react-icons/fa';
+import { IoIosPaper } from "react-icons/io";
 
-import getTheme from "../../../native-base-theme/components";
-import material from "../../../native-base-theme/variables/material";
 
 const MainFooter = () => {
     return (
-        <>
-            <Content />
-            <StyleProvider style={getTheme(material)}>
-                <Footer>
-                    <FooterTab>
-                        <Button vertical>
-                            <Icon
-                                ios="ios-journal"
-                                android="md-journal"
-                                style={{ color: "#F9A69A" }}
-                            />
-                            <Text>Add Journal</Text>
-                        </Button>
-                        <Button vertical>
-                            <Icon
-                                ios="ios-paper"
-                                android="md-document"
-                                style={{ color: "#F9A69A" }}
-                            />
-                            <Text>Add Entry</Text>
-                        </Button>
-                    </FooterTab>
-                </Footer>
-            </StyleProvider>
-        </>
+        <footer className="footer" >
+            <Nav className="justify-content-center" activeKey="/home">
+                <Nav.Item>
+                    <FaBook />
+                    <Nav.Link href="/home">Add Journal</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <IoIosPaper />
+                    <Nav.Link href="/new-entry">Add Entry</Nav.Link>
+                </Nav.Item>
+            </Nav>
+        </footer >
     );
 };
 
 export default MainFooter;
+
+

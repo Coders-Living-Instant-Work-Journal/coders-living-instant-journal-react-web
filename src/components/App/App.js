@@ -4,9 +4,10 @@ import JournalSideDrawer from '../JournalSideDrawer/JournalSideDrawer';
 import JournalBackdrop from '../Backdrop/JournalBackdrop';
 import SettingsSideDrawer from '../SettingsSideDrawer/SettingsSideDrawer';
 import SettingsBackdrop from '../Backdrop/SettingsBackdrop';
-
+import MainFooter from '../MainFooter'
 import Entries from '../Entries'
-
+import NewEntry from '../NewEntry'
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import Login from '../Login';
 
 import store from '../../Store';
@@ -73,8 +74,10 @@ class App extends Component {
 					<SettingsSideDrawer showSettings={this.state.settingsDrawerOpen} />
 					{settingsBackdrop}
 					<Entries />
-					{/* <MainFooter /> */}
+					<MainFooter />
 					{/* </Login> */}
+
+					<NewEntry />
 				</Container>
 			</Provider>
 		);
