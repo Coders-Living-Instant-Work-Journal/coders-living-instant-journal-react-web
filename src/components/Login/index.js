@@ -27,8 +27,8 @@ const Login = ({ loggedIn, login, children }) => {
     <>
     <header>
       <nav className="homebar">
-        <div className="homebar_logo" >  
-          <a href="/"><img className="logo" src={logo} alt="Logo" /></a>
+        <div>  
+          <a href="/"><img className="homelogo" src={logo} alt="Logo" /></a>
         </div>
         <div>Why CLIJ?</div>
         <div>About</div>

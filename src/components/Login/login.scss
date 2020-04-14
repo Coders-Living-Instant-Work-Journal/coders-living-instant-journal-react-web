@@ -1,8 +1,15 @@
 .homebar {
   display: flex;
   flex-direction: row;
-  // justify-content: flex-start;
-  align-content: flex-start;
+  justify-content: flex-start;
+  .homelogo {
+    padding: 5px;
+    height: 80px;
+    width: 80px;
+  }
+  div {
+    padding: 10px;
+  }
 }
 
 .login {
@@ -12,6 +19,8 @@
   margin-top: 200px;
   Button {
     margin-right: 10px;
+    height: 40px;
+    width: 80px;
   }
   .github {
     padding: 5px;
