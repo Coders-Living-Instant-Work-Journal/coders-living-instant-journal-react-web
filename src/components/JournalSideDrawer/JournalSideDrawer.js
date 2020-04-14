@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { getAllJournals, setActive } from '../../Actions';
 
-import './SideDrawer.scss';
+import './JournalSideDrawer.scss';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -16,15 +16,15 @@ const mapDispatchToProps = {
   setActive,
 };
 
-const SideDrawer = ({
+const JournalSideDrawer = ({
   journals,
   activeJournal,
   getAllJournals,
   setActive,
-  show,
+  showJournal,
 }) => {
   let drawerClasses = ['side-drawer'];
-  if (show) {
+  if (showJournal) {
     drawerClasses = ['side-drawer', 'open'];
   }
 
@@ -37,6 +37,7 @@ const SideDrawer = ({
   return (
     <section className={drawerClasses.join(' ')}>
       <ul>
+        <h2>Journals</h2>
         {journals.map((journal) => (
           <li
             key={journal.name}
@@ -53,4 +54,4 @@ const SideDrawer = ({
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideDrawer);
+export default connect(mapStateToProps, mapDispatchToProps)(JournalSideDrawer);

@@ -5,12 +5,17 @@ import thunk from 'redux-thunk';
 import journalReducer from '../Reducers/journalReducers';
 import activeJournalReducer from '../Reducers/activeJournalReducers';
 import entriesReducer from '../Reducers/entriesReducers';
+import loginReducer from '../Reducers/loginReducers'
 
 const reducers = combineReducers({
   journals: journalReducer,
   activeJournal: activeJournalReducer,
   entries: entriesReducer,
+  login: loginReducer
 });
+
+
+
 
 const store = () => {
   return createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));

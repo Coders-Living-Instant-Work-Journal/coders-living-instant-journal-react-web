@@ -1,0 +1,44 @@
+.settingsSide-drawer {
+    height: 100%;
+    background: #2e0259;
+    box-shadow: 1px 0px 7px rgb(51, 51, 51);
+    position: fixed;
+    top: 7rem;
+    right: 0;
+    width: 70%;
+    max-width: 400px;
+    z-index: 201;
+    transform: translateX(101%);
+    transition: transform 0.3s ease-out;
+}
+
+.settingsSide-drawer.open {
+    transform: translateX(0);
+}
+
+.settingsSide-drawer ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+}
+
+li {
+    //     position: absolute;
+    //   display: flex;
+    //   flex-direction: column;
+    color: white;
+    margin: 0.5rem 0;
+}
+
+.settingsSide-drawer a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.settingsSide-drawer a:hover,
+.settingsSide-drawer a:active {
+    color: purple;
+}
