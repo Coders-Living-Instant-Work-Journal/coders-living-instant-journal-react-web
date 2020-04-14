@@ -1,0 +1,45 @@
+.side-drawer {
+  height: 100%;
+  background: #2e0259;
+  box-shadow: 1px 0px 7px rgb(51, 51, 51);
+  position: fixed;
+  top: 7rem;
+  left: 0;
+  width: 70%;
+  max-width: 400px;
+  z-index: 200;
+  transform: translateX(-101%);
+  transition: transform 0.3s ease-out;
+}
+
+.side-drawer.open {
+  transform: translateX(0);
+}
+
+.side-drawer ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  color: white;
+    margin: 0.5rem 0;
+}
+
+.side-drawer a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.side-drawer a:hover,
+.side-drawer a:active {
+  color: purple;
+}
+
+h2 {
+    color: #F9A69A;
+    font-weight: bold;
+}

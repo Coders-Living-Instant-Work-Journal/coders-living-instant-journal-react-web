@@ -1,0 +1,48 @@
+{
+    "journals" : [{
+            "_id": 1 ,
+            "entryIds": [],
+            "name": "Work" ,
+            "userId": 1
+        },
+        {
+            "_id": 2,
+            "entryIds": [],
+            "name": "Home",
+            "userId": 1
+        },
+        {
+            "_id": 3,
+            "entryIds": [],
+            "name": "Spring Cleaning",
+            "userId": 1
+        },
+        {
+            "_id": 3,
+            "entryIds": [],
+            "name": "Work",
+            "userId": 2
+        }, {
+            "_id": 4,
+            "entryIds": [],
+            "name": "Home",
+            "userId": 2
+        }, {
+            "_id": 5,
+            "entryIds": [],
+            "name": "Gardening",
+            "userId": 2
+        },
+        {
+            "_id": 6,
+            "entryIds": [],
+            "name": "Work",
+            "userId": 3
+        }, {
+            "_id": 7,
+            "entryIds": [],
+            "name": "Wine List",
+            "userId": 3
+        }
+    ]
+}
