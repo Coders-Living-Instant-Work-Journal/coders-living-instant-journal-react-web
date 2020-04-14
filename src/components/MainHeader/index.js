@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import ToggleButton from '../SideDrawer/ToggleButton'
+import ToggleButton from '../JournalSideDrawer/ToggleButton'
 import './MainHeader.scss'
 
 //Tool bar images 
@@ -18,14 +18,14 @@ const MainHeader = props => (
     <header className="toolbar">
         <nav className="toolbar_navigation">
             <div>
-                <ToggleButton click={props.drawerClickHandler} />
+                <ToggleButton click={props.journalDrawerClickHandler} />
             </div>
             <div className="spacer" />
-            <div className="toolbar_logo" >  <a href="/"><img className="logo" src={logo} alt="Logo" /></a>
-            </div>
+            <a className="toolbar_logo" href="/"><img className="logo" src={logo} alt="Logo" /></a>
+            
             <div className="spacer" />
             <div className="settingsMenu">
-                <GoGear className="gear" />
+                <GoGear className="gear" onClick={props.settingsClickHandler} />
             </div>
         </nav>
     </header>

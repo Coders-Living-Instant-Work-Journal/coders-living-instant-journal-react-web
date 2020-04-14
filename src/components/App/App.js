@@ -1,7 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Container } from 'react-bootstrap';
-import SideDrawer from '../SideDrawer/SideDrawer'
-import Backdrop from '../Backdrop/Backdrop'
+import JournalSideDrawer from '../JournalSideDrawer/JournalSideDrawer'
+import JournalBackdrop from '../Backdrop/JournalBackdrop'
+import SettingsSideDrawer from '../SettingsSideDrawer/SettingsSideDrawer'
+import SettingsBackdrop from '../Backdrop/SettingsBackdrop'
 
 import Login from '../Login'
 
@@ -10,46 +12,53 @@ import { Provider } from 'react-redux'
 
 
 import MainHeader from '../MainHeader';
-// import MainFooter from "./src/components/MainFooter";
+// import MainFooter from "../MainFooter";
 
-
-// const App = () => {
-//   return (
-//     <>
-//       <Container>
-//         <MainHeader />
-//         <MainFooter />
-//       </Container>
-//     </>
-//   );
-// };
-
-// export default App;
 
 class App extends Component {
 
   state = {
-    sideDrawerOpen: false,
+    journalDrawerOpen: false,
+    settingsDrawerOpen: false
   }
 
-  ///Menu toggler 
-  drawerToggleClickHandler = () => {
+  ///Journal Menu toggler 
+  journalDrawerToggleClickHandler = () => {
     this.setState((prevState) => {
-      return { sideDrawerOpen: !prevState.sideDrawerOpen }
+      return { journalDrawerOpen: !prevState.journalDrawerOpen }
     })
   }
 
-  backdropClickHandler = () => {
-    this.setState({ sideDrawerOpen: false })
+  journalBackdropClickHandler = () => {
+    this.setState({ journalDrawerOpen: false })
   }
+
+  //Settings Toggler 
+  settingsToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return { settingsDrawerOpen: !prevState.settingsDrawerOpen }
+    })
+  }
+
+
+  settingsBackdropClickHandler = () => {
+    this.setState({ settingsDrawerOpen: false })
+  }
+
 
 
   render() {
 
-    //Menu backdrop
-    let backdrop;
-    if (this.state.sideDrawerOpen) {
-      backdrop = <Backdrop click={this.backdropClickHandler} />
+    //Journal Menu backdrop
+    let journalBackdrop;
+    if (this.state.journalDrawerOpen) {
+      journalBackdrop = <JournalBackdrop click={this.journalBackdropClickHandler} />
+    }
+
+    //Settings backdrop
+    let settingsBackdrop;
+    if (this.state.settingsDrawerOpen) {
+      settingsBackdrop = <SettingsBackdrop settingsClick={this.settingsBackdropClickHandler} />
     }
 
 
@@ -57,10 +66,12 @@ class App extends Component {
       <Provider store={store}>
         <Container className="App">
           <Login>
-            <MainHeader drawerClickHandler={this.drawerToggleClickHandler} />
-            <SideDrawer show={this.state.sideDrawerOpen} />
-            {backdrop}
-        {/* <MainFooter /> */}
+            <MainHeader journalDrawerClickHandler={this.journalDrawerToggleClickHandler} settingsClickHandler={this.settingsToggleClickHandler} />
+          <JournalSideDrawer showJournal={this.state.journalDrawerOpen} />
+          {journalBackdrop}
+          <SettingsSideDrawer showSettings={this.state.settingsDrawerOpen} />
+          {settingsBackdrop}
+          {/* <MainFooter /> */}
           </Login>
         </Container>
       </Provider>
