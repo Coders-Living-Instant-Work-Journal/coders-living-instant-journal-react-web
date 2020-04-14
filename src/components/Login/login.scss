@@ -1,0 +1,26 @@
+.homebar {
+  display: flex;
+  flex-direction: row;
+  // justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.login {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  Button {
+    margin-right: 10px;
+  }
+  .github {
+    padding: 5px;
+    height: 80px;
+    width: 80px;
+  }
+  .google {
+    padding: 5px;
+    height: 80px;
+    width: 80px;
+  }
+}
