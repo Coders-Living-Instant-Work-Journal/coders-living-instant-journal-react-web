@@ -24,7 +24,7 @@ const Entries = ({ entries, getAllEntries }) => {
 
   return (
     <>
-      <h1 className="test">Your Journal Entries</h1>
+      <h1 className="title">Your Journal Entries</h1>
 
       <Container>
         {entries.map((entry) => (

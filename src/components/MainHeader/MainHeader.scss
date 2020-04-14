@@ -1,26 +1,27 @@
 .toolbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #2E0259;
-    height: 7rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #2e0259;
+  height: 7rem;
+  z-index: 5;
 }
 
 .toolbar_navigation {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    padding: 0 1rem;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 1rem;
 }
 
 .logo {
-    // margin: 1rem;
-    width: 15%;
+  // margin: 1rem;
+  width: 15%;
 }
 
 .toolbar_logo {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 // .toolbar_logo a {
@@ -31,34 +32,34 @@
 // }
 
 .spacer {
-    flex: 1;
+  flex: 1;
 }
 
 .gear {
-    color: #04BFBF;
-    font-size: 50px;
+  color: #04bfbf;
+  font-size: 50px;
 }
 
 .toolbar_navigation-items ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .toolbar_navigation-items li {
-    color: white;
-    cursor: pointer;
-    padding: 0 0.5rem;
+  color: white;
+  cursor: pointer;
+  padding: 0 0.5rem;
 }
 
 .toolbar_navigation-items a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .toolbar_navigation-items a:hover .toolbar_navigation-items a:active {
-    color: white;
+  color: white;
 }
 
 /* @media (max-width: 768px) {
