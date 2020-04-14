@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { getAllJournals, setActive } from "../../Actions";
+import React, { useEffect } from 'react';
+import { getAllJournals, setActive } from '../../Actions';
 
-import "./SideDrawer.scss";
-import { connect } from "react-redux";
+import './SideDrawer.scss';
+import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
   return {
@@ -23,9 +23,9 @@ const SideDrawer = ({
   setActive,
   show,
 }) => {
-  let drawerClasses = ["side-drawer"];
+  let drawerClasses = ['side-drawer'];
   if (show) {
-    drawerClasses = ["side-drawer", "open"];
+    drawerClasses = ['side-drawer', 'open'];
   }
 
   const journalFetcher = () => {
@@ -35,17 +35,17 @@ const SideDrawer = ({
   useEffect(() => journalFetcher(), []);
 
   return (
-    <section className={drawerClasses.join(" ")}>
+    <section className={drawerClasses.join(' ')}>
       <ul>
         {journals.map((journal) => (
           <li
             key={journal.name}
             onClick={() => {
-              setActive(activeJournal === journal.name ? "" : journal.name);
+              setActive(activeJournal === journal.name ? '' : journal.name);
             }}
           >
-            {" "}
-            {journal.name}{" "}
+            {' '}
+            {journal.name}{' '}
           </li>
         ))}
       </ul>

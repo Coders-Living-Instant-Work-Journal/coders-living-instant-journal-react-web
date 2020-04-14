@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { getAllEntries } from "../../Actions";
-import { Row, Col, Container } from "react-bootstrap";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getAllEntries } from '../../Actions';
+import { Row, Col, Container } from 'react-bootstrap';
 
-import "./Entries.scss";
+import './Entries.scss';
 
 const mapStateToProps = (state) => {
   return {
@@ -24,17 +24,17 @@ const Entries = ({ entries, getAllEntries }) => {
 
   return (
     <>
-      <h1 className="title">Your Journal Entries</h1>
+      <h1 className='title'>Your Journal Entries</h1>
 
       <Container>
         {entries.map((entry) => (
           <>
-            <Row className="entry-headers">
+            <Row className='entry-headers'>
               <Col>{entry.date}</Col>
               <Col>{entry.category}</Col>
             </Row>
             <Row>
-              <Col className="entry-text">{entry.text}</Col>
+              <Col className='entry-text'>{entry.text}</Col>
             </Row>
           </>
         ))}

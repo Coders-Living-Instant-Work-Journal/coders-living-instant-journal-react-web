@@ -1,10 +1,10 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
-import journalReducer from "../Reducers/journalReducers";
-import activeJournalReducer from "../Reducers/activeJournalReducers";
-import entriesReducer from "../Reducers/entriesReducers";
+import journalReducer from '../Reducers/journalReducers';
+import activeJournalReducer from '../Reducers/activeJournalReducers';
+import entriesReducer from '../Reducers/entriesReducers';
 
 const reducers = combineReducers({
   journals: journalReducer,
