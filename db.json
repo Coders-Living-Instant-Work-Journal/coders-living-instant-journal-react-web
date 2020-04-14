@@ -1,48 +1,94 @@
 {
-    "journals" : [{
-            "_id": 1 ,
-            "entryIds": [],
-            "name": "Work" ,
-            "userId": 1
-        },
-        {
-            "_id": 2,
-            "entryIds": [],
-            "name": "Home",
-            "userId": 1
-        },
-        {
-            "_id": 3,
-            "entryIds": [],
-            "name": "Spring Cleaning",
-            "userId": 1
-        },
-        {
-            "_id": 3,
-            "entryIds": [],
-            "name": "Work",
-            "userId": 2
-        }, {
-            "_id": 4,
-            "entryIds": [],
-            "name": "Home",
-            "userId": 2
-        }, {
-            "_id": 5,
-            "entryIds": [],
-            "name": "Gardening",
-            "userId": 2
-        },
-        {
-            "_id": 6,
-            "entryIds": [],
-            "name": "Work",
-            "userId": 3
-        }, {
-            "_id": 7,
-            "entryIds": [],
-            "name": "Wine List",
-            "userId": 3
-        }
-    ]
+  "journals": [
+    {
+      "_id": 1,
+      "entryIds": [],
+      "name": "Work",
+      "userId": 1
+    },
+    {
+      "_id": 2,
+      "entryIds": [],
+      "name": "Home",
+      "userId": 1
+    },
+    {
+      "_id": 3,
+      "entryIds": [],
+      "name": "Spring Cleaning",
+      "userId": 1
+    },
+    {
+      "_id": 3,
+      "entryIds": [],
+      "name": "Work",
+      "userId": 2
+    },
+    {
+      "_id": 4,
+      "entryIds": [],
+      "name": "Home",
+      "userId": 2
+    },
+    {
+      "_id": 5,
+      "entryIds": [],
+      "name": "Gardening",
+      "userId": 2
+    },
+    {
+      "_id": 6,
+      "entryIds": [],
+      "name": "Work",
+      "userId": 3
+    },
+    {
+      "_id": 7,
+      "entryIds": [],
+      "name": "Wine List",
+      "userId": 3
+    }
+  ],
+  "entries": [
+    {
+      "_id": 1,
+      "userId": 1,
+      "journalId": 2,
+      "category": "sci-fi",
+      "text": "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before. Many say exploration is part of our destiny, but it’s actually our duty to future genera",
+      "date": "1/2/2020"
+    },
+    {
+      "_id": 2,
+      "userId": 1,
+      "journalId": 4,
+      "category": "food",
+      "text": "Sugar plum danish candy canes sweet ice cream. Dragée dragée brownie sugar plum biscuit topping ice cream croissant. Dragée biscuit marzipan danish jujubes bear claw tootsie roll tootsie roll cotton candy. Pudding chocolate cake tart bear claw liquorice cotton candy topping jelly-o. Caramels liquorice chocolate sweet pie liquorice marzipan caramels chupa chups. Gingerbread brownie cake cupcake tiramisu macaroon pie brownie cheesecake.",
+      "date": "1/2/2020"
+    },
+    {
+      "_id": 3,
+      "userId": 1,
+      "journalId": 2,
+      "category": "food",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "date": "1/2/2020"
+    },
+    {
+      "_id": 4,
+      "userId": 1,
+      "journalId": 3,
+      "category": "homework",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "date": "1/2/2020"
+    },
+    {
+      "_id": 1,
+      "userId": 2,
+      "journalId": 1,
+      "category": "projects",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "date": "1/2/2020"
+    }
+  ]
 }
