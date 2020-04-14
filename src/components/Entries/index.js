@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getAllEntries } from '../../Actions';
+import { getAllEntries } from '../../Actions/index';
 import { Row, Col, Container } from 'react-bootstrap';
 
 import './Entries.scss';
@@ -16,6 +16,7 @@ const mapDispatchToProps = {
 };
 
 const Entries = ({ entries, getAllEntries }) => {
+
   const entriesFetcher = () => {
     getAllEntries();
   };
