@@ -1,3 +1,12 @@
+# Coders Living Instant Journal - React Web App
+**Version** 1.0.1
+
+## Overview
+- Web app version. Designed mobile first.
+- Dev: clone, `npm i`, `npm start`
+
+***
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
