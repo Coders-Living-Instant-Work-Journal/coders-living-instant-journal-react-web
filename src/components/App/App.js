@@ -3,6 +3,8 @@ import { Container } from 'react-bootstrap';
 import SideDrawer from '../SideDrawer/SideDrawer'
 import Backdrop from '../Backdrop/Backdrop'
 
+import Login from '../Login'
+
 import store from '../../Store'
 import { Provider } from 'react-redux'
 
@@ -54,10 +56,12 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Container className="App">
-          <MainHeader drawerClickHandler={this.drawerToggleClickHandler} />
-          <SideDrawer show={this.state.sideDrawerOpen} />
-          {backdrop}
-      {/* <MainFooter /> */}
+          <Login>
+            <MainHeader drawerClickHandler={this.drawerToggleClickHandler} />
+            <SideDrawer show={this.state.sideDrawerOpen} />
+            {backdrop}
+        {/* <MainFooter /> */}
+          </Login>
         </Container>
       </Provider>
     )
