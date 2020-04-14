@@ -4,10 +4,12 @@ import thunk from 'redux-thunk'
 
 import journalReducer from '../Reducers/journalReducers'
 import activeJournalReducer from '../Reducers/activeJournalReducers';
+import loginReducer from '../Reducers/loginReducers'
 
 const reducers = combineReducers({
     journals: journalReducer,
-    activeJournal: activeJournalReducer
+    activeJournal: activeJournalReducer,
+    login: loginReducer
 })
 
 const store = () => {

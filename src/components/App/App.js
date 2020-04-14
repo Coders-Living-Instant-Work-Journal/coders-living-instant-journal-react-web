@@ -5,6 +5,8 @@ import JournalBackdrop from '../Backdrop/JournalBackdrop'
 import SettingsSideDrawer from '../SettingsSideDrawer/SettingsSideDrawer'
 import SettingsBackdrop from '../Backdrop/SettingsBackdrop'
 
+import Login from '../Login'
+
 import store from '../../Store'
 import { Provider } from 'react-redux'
 
@@ -63,12 +65,14 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Container className="App">
-          <MainHeader journalDrawerClickHandler={this.journalDrawerToggleClickHandler} settingsClickHandler={this.settingsToggleClickHandler} />
+          <Login>
+            <MainHeader journalDrawerClickHandler={this.journalDrawerToggleClickHandler} settingsClickHandler={this.settingsToggleClickHandler} />
           <JournalSideDrawer showJournal={this.state.journalDrawerOpen} />
           {journalBackdrop}
           <SettingsSideDrawer showSettings={this.state.settingsDrawerOpen} />
           {settingsBackdrop}
           {/* <MainFooter /> */}
+          </Login>
         </Container>
       </Provider>
     )
