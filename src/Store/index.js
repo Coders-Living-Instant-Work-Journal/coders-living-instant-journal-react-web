@@ -7,6 +7,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import journalReducer from '../Reducers/journalReducers'
 import activeJournalReducer from '../Reducers/activeJournalReducers';
 import loginReducer from '../Reducers/loginReducers'
+import entriesReducer from '../Reducers/entriesReducers';
 
 const store = configureStore({
     reducer: {
