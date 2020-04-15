@@ -13,7 +13,7 @@ import {
 
 const mapStateToProps = state => {
     return {
-        journals: ['Testing','Work'],//so map doesn't fail
+        journals: ['Test','Journals'],//state.journals,
         activeJournal: state.activeJournal
     }
 }
@@ -40,8 +40,6 @@ const JournalSideDrawer = ({
     }
 
     useEffect(() => journalFetcher(), [])
-
-
 
     return (
         <section className={drawerClasses.join(' ')}>
