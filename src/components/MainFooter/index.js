@@ -3,7 +3,8 @@ import './MainFooter.scss'
 import { Nav } from 'react-bootstrap'
 import { FaBook } from 'react-icons/fa';
 import { IoIosPaper } from "react-icons/io";
-
+import { Link } from 'react-router-dom'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const MainFooter = () => {
     return (
@@ -15,7 +16,9 @@ const MainFooter = () => {
                 </Nav.Item>
                 <Nav.Item>
                     <IoIosPaper />
-                    <Nav.Link href="/new-entry">Add Entry</Nav.Link>
+                    <LinkContainer to="/new-entry">
+                        <Nav.Link >Add Entry</Nav.Link>
+                    </LinkContainer>
                 </Nav.Item>
             </Nav>
         </footer >
