@@ -1,101 +1,43 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container } from 'react-bootstrap';
-import JournalSideDrawer from '../JournalSideDrawer/JournalSideDrawer';
-import JournalBackdrop from '../Backdrop/JournalBackdrop';
-import SettingsSideDrawer from '../SettingsSideDrawer/SettingsSideDrawer';
-import SettingsBackdrop from '../Backdrop/SettingsBackdrop';
-import MainFooter from '../MainFooter'
-import Entries from '../Entries'
-import NewEntry from '../NewEntry'
-import EntryDetails from '../EntryDetails'
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import Login from '../Login';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Provider, connect } from 'react-redux';
 
-import store from '../../Store';
-import { Provider } from 'react-redux';
+import MainFooter from '../MainFooter';
+import Entries from '../Entries';
+import NewEntry from '../NewEntry';
+import EntryDetails from '../EntryDetails';
+import Login from '../Login'
+//dispatch
+import { changePage } from '../../Actions/pages';
+
+//styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
+
+//consts
+import { Pages } from '../../Reducers/activePageReducer';
 
 import MainHeader from '../MainHeader';
 // import MainFooter from "../MainFooter";
 
-class App extends Component {
-	state = {
-		journalDrawerOpen: false,
-		settingsDrawerOpen: false
-	};
+const mapStateToProps = (state) => {
+  return {
+    activePage: state.activePage,
+  };
+};
 
-	///Journal Menu toggler
-	journalDrawerToggleClickHandler = () => {
-		this.setState((prevState) => {
-			return { journalDrawerOpen: !prevState.journalDrawerOpen };
-		});
-	};
-
-	journalBackdropClickHandler = () => {
-		this.setState({ journalDrawerOpen: false });
-	};
-
-	//Settings Toggler
-	settingsToggleClickHandler = () => {
-		this.setState((prevState) => {
-			return { settingsDrawerOpen: !prevState.settingsDrawerOpen };
-		});
-	};
-
-	settingsBackdropClickHandler = () => {
-		this.setState({ settingsDrawerOpen: false });
-	};
-
-	render() {
-		//Journal Menu backdrop
-		let journalBackdrop;
-		if (this.state.journalDrawerOpen) {
-			journalBackdrop = (
-				<JournalBackdrop click={this.journalBackdropClickHandler} />
-			);
-		}
-
-		//Settings backdrop
-		let settingsBackdrop;
-		if (this.state.settingsDrawerOpen) {
-			settingsBackdrop = (
-				<SettingsBackdrop settingsClick={this.settingsBackdropClickHandler} />
-			);
-		}
-
-		return (
-			<Provider store={store}>
-				<Container className="App">
-					{/* <Login> */}
-					<MainHeader
-						journalDrawerClickHandler={this.journalDrawerToggleClickHandler}
-						settingsClickHandler={this.settingsToggleClickHandler}
-					/>
-					<JournalSideDrawer showJournal={this.state.journalDrawerOpen} />
-					{journalBackdrop}
-					<SettingsSideDrawer showSettings={this.state.settingsDrawerOpen} />
-					{settingsBackdrop}
-
-					<Router>
-						<Switch>
-							<Route path="/" exact>
-								<Entries />
-							</Route>
-							<Route path="/new-entry" exact>
-								<NewEntry />
-							</Route>
-							<Route path="/entry-details" exact>
-								<EntryDetails />
-							</Route>
-						</Switch>
-						<MainFooter />
-					</Router>
-
-					{/* </Login> */}
-				</Container>
-			</Provider>
-		);
-	}
+function App({ activePage, changePage }) {
+  console.log('activePage', activePage, 'all pges: ', Pages);
+  return (
+    <Container className="App">
+      <Login>
+        <MainHeader />
+        {activePage === Pages.HOME && <Entries />}
+        {activePage === Pages.NEW_ENTRY && <NewEntry />}
+        {activePage === Pages.ENTRY_DETAILS && <EntryDetails />}
+      </Login>
+    </Container>
+  );
 }
 
-export default App;
+export default connect(mapStateToProps, { changePage })(App);
