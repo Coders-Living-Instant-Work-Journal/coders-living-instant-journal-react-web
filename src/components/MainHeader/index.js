@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+=======
+import React from 'react'
+import { connect } from 'react-redux'
+>>>>>>> 8896142b6bfdc4ff397910fbc9a9616fd653c630
 
 import ToggleButton from './JournalSideDrawer/ToggleButton';
 import Opacity from './Backdrop/JournalBackdrop';
 import './MainHeader.scss';
 
+<<<<<<< HEAD
 //Tool bar images
 import logo from '../../assets/logo.png';
 import { GoGear } from 'react-icons/go';
@@ -65,3 +71,33 @@ const MainHeader = () => {
 };
 
 export default connect(mapStateToProps)(MainHeader);
+=======
+// Tool bar images
+import logo from '../../assets/logo.png'
+import { GoGear } from 'react-icons/go'
+
+const mapStateToProps = state => {
+  return {
+    journals: state.journals
+  }
+}
+
+const MainHeader = props => (
+  <header className='toolbar'>
+    <nav className='toolbar_navigation'>
+      <div>
+        <ToggleButton click={props.journalDrawerClickHandler} />
+      </div>
+      <div className='spacer' />
+      <a className='toolbar_logo' href='/'><img className='logo' src={logo} alt='Logo' /></a>
+
+      <div className='spacer' />
+      <div className='settingsMenu'>
+        <GoGear className='gear' onClick={props.settingsClickHandler} />
+      </div>
+    </nav>
+  </header>
+)
+
+export default connect(mapStateToProps)(MainHeader)
+>>>>>>> 8896142b6bfdc4ff397910fbc9a9616fd653c630
