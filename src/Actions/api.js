@@ -6,29 +6,29 @@ const findToken = () => '1';
 const oauthHandler = () => 'original oauth flow fix later';
 // const jwt = 0;
 //constants
+
 // const API_SERVER_URI = 'https://clij.herokuapp.com'
-const API_SERVER_URI = "http://localhost:3005";
+const API_SERVER_URI = 'http://localhost:3005'
 
-
-//functions
+// functions
 // ----- SEND NEW USER SIGN UP TO API
 
-async function exchangeToken(credentials) {
+async function exchangeToken (credentials) {
   const response = await superagent.post(`${API_SERVER_URI}/authenticate`)
     .send(credentials)
   if (response.body.token) {
     // this is where we will get Token from local storage
-    storeToken(response.body.token);
+    storeToken(response.body.token)
     return true
   } else {
     return false
   }
 }
-async function signUpOauth(provider) {
-  //complete the oauth handshake with the provider.
+async function signUpOauth (provider) {
+  // complete the oauth handshake with the provider.
   await oauthHandler.start(provider)
-  oauthHandler.close();
-  //get the credentials from the fs
+  oauthHandler.close()
+  // get the credentials from the fs
   const raw = await findToken('oauth')
   const credentials = JSON.parse(raw)
   return credentials
@@ -36,8 +36,9 @@ async function signUpOauth(provider) {
 // ----- SENDS NEW JOURNAL TO API
 async function saveJournalApi(journal) {
   return superagent
+
     .post(`${API_SERVER_URI}/createj`)
-    .set("Authorization", findToken())
+    .set('Authorization', findToken())
     .send({ name: journal })
     .catch((err) => console.error(err));
 }
@@ -52,16 +53,18 @@ async function getJournals() {
 // UPDATES AN ENTRY
 async function putApi(entry) {
   return superagent
+
     .put(`${API_SERVER_URI}/update`)
-    .set("Authorization", findToken())
+    .set('Authorization', findToken())
     .send(entry)
     .catch((err) => console.error(err.message));
 }
 // DELETE
 async function deleteEntryApi(id) {
   return superagent
+
     .delete(`${API_SERVER_URI}/delete`)
-    .set("Authorization", findToken())
+    .set('Authorization', findToken())
     .send(id)
     .catch((err) => console.error(err.message));
 }
@@ -79,34 +82,39 @@ async function getEntries(filter) {
 // QUERIES API TO UPDATE JOURNAL NAME
 async function updateJournalApi(journal, name) {
   return superagent
+
     .put(`${API_SERVER_URI}/updatej`)
-    .set("Authorization", findToken())
+    .set('Authorization', findToken())
     .send({ id: journal._id, name: name })
     .catch((err) => console.error(err.message));
+
 }
 // QUERIES API TO CHANGE DEFAULT JOURNAL
-async function selectJournal(journal) {
+async function selectJournal (journal) {
   await superagent
     .post(`${API_SERVER_URI}/selectj`)
-    .set("Authorization", findToken())
+    .set('Authorization', findToken())
     .send({ jId: journal._id, name: journal.name })
     .catch((err) => console.error(err.message));
 }
 // CRUD FUNCTIONS
 async function createEntryApi(entry) {
   return superagent
+
     .post(`${API_SERVER_URI}/create`)
-    .set("Authorization", findToken())
+    .set('Authorization', findToken())
     .send(entry)
     .catch((err) => console.error(err.message));
 }
 // DELETES JOURNAL
 async function deleteJournalApi(journal) {
+
   superagent
     .delete(`${API_SERVER_URI}/deletej`)
-    .set("Authorization", findToken())
+    .set('Authorization', findToken())
     .send({ id: journal._id })
     .catch((err) => console.log(err.message));
+
 }
 export {
 
@@ -120,5 +128,5 @@ export {
   putApi,
   saveJournalApi,
   signUpOauth,
-  exchangeToken,
-};
+  exchangeToken
+}
