@@ -20,10 +20,10 @@ export async function createEntry(entry) {
   try {
     await createEntryApi(entry);
   } catch (e) {
-		console.error(e);
-		return 'Something went wrong.'
-	}
-	return 'Entry created!'
+    console.error(e);
+    return 'Something went wrong.'
+  }
+  return 'Entry created!'
 }
 
 // function createEntryAction(data) {
@@ -37,6 +37,7 @@ export async function createEntry(entry) {
 export function getAllEntries() {
   return async function (dispatch) {
     const data = await getEntries();
+    console.log('entries data', data)
     return dispatch(getAllEntriesAction(data));
   };
 }

@@ -7,6 +7,7 @@ import SettingsBackdrop from '../Backdrop/SettingsBackdrop';
 import MainFooter from '../MainFooter'
 import Entries from '../Entries'
 import NewEntry from '../NewEntry'
+import EntryDetails from '../EntryDetails'
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import Login from '../Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -82,6 +83,9 @@ class App extends Component {
 							</Route>
 							<Route path="/new-entry" exact>
 								<NewEntry />
+							</Route>
+							<Route path="/entry-details" exact>
+								<EntryDetails />
 							</Route>
 						</Switch>
 						<MainFooter />
