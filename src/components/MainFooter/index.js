@@ -3,7 +3,7 @@ import './MainFooter.scss'
 import { Nav } from 'react-bootstrap'
 import { FaBook } from 'react-icons/fa';
 import { IoIosPaper } from "react-icons/io";
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 
 const MainFooter = () => {

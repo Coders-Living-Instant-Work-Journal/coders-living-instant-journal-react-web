@@ -17,25 +17,22 @@ const mapDispatchToProps = {
 
 const Entries = ({ entries, getAllEntries }) => {
 
-  const entriesFetcher = () => {
-    getAllEntries();
-  };
 // eslint-disable-next-line
-  useEffect(() => entriesFetcher(), []);
+  useEffect(getAllEntries, []);
 
   return (
     <>
       <h1 className='title'>Your Journal Entries</h1>
 
       <Container>
-        {entries.map((entry) => (
+        {entries.map((entry, index) => (
           <>
-            <Row className='entry-headers'>
-              <Col>{entry.date}</Col>
-              <Col>{entry.category}</Col>
+            <Row className='entry-headers' key={entry._id} >
+              <Col key={entry._id + 1}>{entry.date}</Col>
+              <Col key={entry._id + 2}>{entry.category}</Col>
             </Row>
             <Row>
-              <Col className='entry-text'>{entry.text}</Col>
+              <Col className='entry-text' key={entry._id + 3}>{entry.text}</Col>
             </Row>
           </>
         ))}

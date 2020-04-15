@@ -47,9 +47,9 @@ const JournalSideDrawer = ({
         <section className={drawerClasses.join(' ')}>
             <ul>
                 <h2>Journals</h2>
-                {journals.map(journal => (
+                {journals.map((journal, index) => (
                     <li
-                        key={journal.name}
+                        key={index}
                         
                         onClick={
                             () => {
