@@ -1,20 +1,6 @@
 import { getEntries, getJournals, updateJournalApi, selectJournal, createEntryApi, deleteJournalApi, saveJournalApi, putApi, deleteEntryApi } from './api'
 
-// GETS ALL JOURNALS
-export function getAllJournals() {
-	return async function (dispatch) {
-		const data = await getJournals()
-		console.log('data', data);
-		return dispatch(getAllJournalsAction(data));
-	};
-}
 
-function getAllJournalsAction(data) {
-	return {
-		type: 'GET_ALL_JOURNALS',
-		payload: data
-	};
-}
 
 export const setActive = (name) => ({
 	type: 'SET_ACTIVE',
@@ -32,13 +18,13 @@ export function createEntry(entry) {
 function createEntryAction(data) {
 	return {
 		type: 'CREATE-_ENTRY',
-		payload: data
+		payload: data.body
 	}
 }
 
 
 // GET ALL ENTRIES
-export function getAllEntries(token) {
+export function getAllEntries() {
 	return async function (dispatch) {
 		const data = await getEntries()
 		return dispatch(getAllEntriesAction(data));
@@ -48,7 +34,7 @@ export function getAllEntries(token) {
 function getAllEntriesAction(data) {
 	return {
 		type: 'GET_ALL_ENTRIES',
-		payload: data,
+		payload: data.body
 	};
 }
 
@@ -63,7 +49,7 @@ export function getOneEntry(id) {
 function getOneEntryAction(data) {
 	return {
 		type: 'GET_ONE_ENTRY',
-		payload: data,
+		payload: data.body,
 	}
 }
 
@@ -78,7 +64,7 @@ export function updateEntry(entry) {
 function updateEntryAction(data) {
 	return {
 		type: 'UPDATE_ENTRY',
-		payload: data
+		payload: data.body
 	}
 }
 
@@ -93,7 +79,7 @@ export function deleteEntry(id) {
 function deleteEntryAction(data) {
 	return {
 		type: 'DELETE_ENTRY',
-		payload: data
+		payload: data.body
 	}
 }
 
@@ -108,8 +94,24 @@ export function createJournal(journal) {
 function createJournalAction(data) {
 	return {
 		type: 'CREATE_JOURNAL',
-		payload: data
+		payload: data.body
 	}
+}
+
+// GETS ALL JOURNALS
+export function getAllJournals() {
+	return async function (dispatch) {
+		const data = await getJournals()
+		console.log('data', data.body);
+		return dispatch(getAllJournalsAction(data));
+	};
+}
+
+function getAllJournalsAction(data) {
+	return {
+		type: 'GET_ALL_JOURNALS',
+		payload: data.body
+	};
 }
 
 
@@ -124,7 +126,7 @@ export function updateJournalName(journal) {
 function updateJournalNameAction(data) {
 	return {
 		type: 'UPDATE_JOURNAL',
-		payload: data,
+		payload: data.body,
 	}
 }
 
@@ -139,7 +141,7 @@ export function changeDefaultJournal(journal) {
 function changeDefaultJournalAction(data) {
 	return {
 		type: 'CHANGE_DEFAULT_JOURNAL',
-		payload: data,
+		payload: data.body,
 	}
 }
 
@@ -154,7 +156,7 @@ export function deleteJournal(journal) {
 function deleteJournalApiAction(data) {
 	return {
 		type: 'DELETE_JOURNAL',
-		payload: data
+		payload: data.body
 	}
 }
 
