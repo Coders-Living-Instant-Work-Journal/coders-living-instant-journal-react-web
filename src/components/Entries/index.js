@@ -1,27 +1,26 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { getAllEntries } from '../../Actions/index';
-import { Row, Col, Container } from 'react-bootstrap';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { getAllEntries } from '../../Actions/index'
+import { Row, Col, Container } from 'react-bootstrap'
 
-import './Entries.scss';
+import './Entries.scss'
 
 const mapStateToProps = (state) => {
   return {
-    entries: state.entries,
-  };
-};
+    entries: state.entries
+  }
+}
 
 const mapDispatchToProps = {
-  getAllEntries,
-};
+  getAllEntries
+}
 
 const Entries = ({ entries, getAllEntries }) => {
-
   const entriesFetcher = () => {
-    getAllEntries();
-  };
+    getAllEntries()
+  }
 
-  useEffect(() => entriesFetcher(), []);
+  useEffect(() => entriesFetcher(), [])
 
   return (
     <>
@@ -41,7 +40,7 @@ const Entries = ({ entries, getAllEntries }) => {
         ))}
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Entries);
+export default connect(mapStateToProps, mapDispatchToProps)(Entries)
