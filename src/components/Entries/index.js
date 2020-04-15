@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { getAllEntries } from '../../Actions/index';
-import { Container} from 'react-bootstrap';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { getAllEntries } from '../../Actions/index'
+import { Row, Col, Container } from 'react-bootstrap'
+import { v4 as uuidv4 } from 'uuid'
 
 import './Entries.scss'
 
@@ -31,11 +32,11 @@ const Entries = ({ entries, getAllEntries }) => {
         {entries.map((entry) => (
           <>
             <Row className='entry-headers' key={entry._id}>
-              <Col key={entry._id + 1}>{entry.date}</Col>
-              <Col key={entry._id + 2}>{entry.category}</Col>
+              <Col key={uuidv4()}>{entry.date}</Col>
+              <Col key={uuidv4()}>{entry.category}</Col>
             </Row>
-            <Row key={entry._id + 3}>
-              <Col className='entry-text' key={entry._id + 4}>{entry.text}</Col>
+            <Row key={uuidv4()}>
+              <Col className='entry-text' key={uuidv4()}>{entry.text}</Col>
             </Row>
           </>
         ))}
