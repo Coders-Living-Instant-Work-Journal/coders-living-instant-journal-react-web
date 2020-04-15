@@ -35,7 +35,6 @@ export async function createEntry (entry) {
 
 // GET ALL ENTRIES
 export function getAllEntries () {
-  console.log('getAllentries')
   return async function (dispatch) {
     const data = await getEntries()
     return dispatch(getAllEntriesAction(data))
@@ -96,17 +95,10 @@ function deleteEntryAction (data) {
 
 // CREATE A NEW JOURNAL
 export function createJournal (journal) {
-  console.log('hello')
   return async function (dispatch) {
-    const data = await saveJournalApi(journal)
-    return dispatch(createJournalAction(data))
-  }
-}
-
-function createJournalAction (data) {
-  return {
-    type: 'CREATE_JOURNAL',
-    payload: data.body
+    await saveJournalApi(journal.journal)
+    const data = await getJournals()
+    return dispatch(getAllJournalsAction(data))
   }
 }
 
@@ -114,7 +106,6 @@ function createJournalAction (data) {
 export function getAllJournals () {
   return async function (dispatch) {
     const data = await getJournals()
-    console.log('data', data.body)
     return dispatch(getAllJournalsAction(data))
   }
 }

@@ -43,14 +43,13 @@ const JournalSideDrawer = ({
   useEffect(() => journalFetcher(), []);
 
   const { register, handleSubmit, reset } = useForm()
-  const onSubmit = journal => {
-    console.log('submitted')
-    createJournal(journal)
-    setActive(journal)
+  const onSubmit = async data => {
+    await createJournal(data)
+    setActive(data.journal)
     setNewJournalInput(false)
     reset()
   }
-
+  console.log('journals', journals)
   return (
     <section className={drawerClasses.join(' ')}>
       <ul>
@@ -62,9 +61,8 @@ const JournalSideDrawer = ({
           />
         )}
         {newJournalInput && (
-          <Form className='add-journal-form'>
+          <Form className='add-journal-form' onSubmit={handleSubmit(onSubmit)}>
             <Form.Control
-              onSubmit={handleSubmit(onSubmit)}
               size='sm'
               type='text'
               placeholder='Journal Name Here'
@@ -72,7 +70,9 @@ const JournalSideDrawer = ({
               className='new-journal-input'
               ref={register}
             />
-            <MdAdd className='add-journal-button' type='submit' />
+            <button type='submit'>
+              <MdAdd className='add-journal-button' />
+            </button>
           </Form>
         )}
         {journals.map((journal, index) => (
