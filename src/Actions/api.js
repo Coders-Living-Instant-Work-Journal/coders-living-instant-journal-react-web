@@ -1,9 +1,10 @@
 import superagent from 'superagent'
-const { storeToken, findToken } = () => 'token';
+const storeToken = () => 'token';
+const findToken = () => 'token';
 
 const exitHandler = () => 'this is how we handle the api response';
 const oauthHandler = () => 'original oauth flow fix later';
-const jwt = 0;
+// const jwt = 0;
 //constants
 // const API_SERVER_URI = 'https://clij.herokuapp.com'
 const API_SERVER_URI = "http://localhost:3005";
@@ -51,6 +52,8 @@ function getJournals() {
     })
     .catch((err) => console.error(err.message));
 }
+
+// UPDATES AN ENTRY
 function putApi(entry) {
   superagent
     .put(`${API_SERVER_URI}/update`)
@@ -60,7 +63,7 @@ function putApi(entry) {
     .catch((err) => console.error(err.message));
 }
 // DELETE
-function deleteEntry(id) {
+function deleteEntryApi(id) {
   superagent
     .delete(`${API_SERVER_URI}/delete`)
     .set("Authorization", findToken())
@@ -72,9 +75,10 @@ function deleteEntry(id) {
 function getEntries(filter) {
   return superagent
     .get(`${API_SERVER_URI}/read`)
-    // .set("Authorization", findToken())
+    .set("Authorization", findToken())
     .send(filter)
     .then((res) => {
+      console.log(res.body)
       return res.body;
     })
     .catch((err) => console.error("thrown error", err.message));
@@ -98,7 +102,7 @@ async function selectJournal(journal) {
     .catch((err) => console.error(err.message));
 }
 // CRUD FUNCTIONS
-function postApi(entry) {
+function createEntryApi(entry) {
   superagent
     .post(`${API_SERVER_URI}/create`)
     .set("Authorization", findToken())
@@ -109,7 +113,7 @@ function postApi(entry) {
     .catch((err) => console.error(err.message));
 }
 // DELETES JOURNAL
-function deleteJournal(journal) {
+function deleteJournalApi(journal) {
   superagent
     .delete(`${API_SERVER_URI}/deletej`)
     .set("Authorization", findToken())
@@ -121,11 +125,11 @@ export {
 
   getJournals,
   updateJournalApi,
-  deleteJournal,
-  postApi,
+  deleteJournalApi,
+  createEntryApi,
   selectJournal,
   getEntries,
-  deleteEntry,
+  deleteEntryApi,
   putApi,
   saveJournalApi,
   signUpOauth,
