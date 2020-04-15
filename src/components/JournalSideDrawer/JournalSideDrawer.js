@@ -13,7 +13,7 @@ import {
 
 const mapStateToProps = state => {
   return {
-    journals: ['Test', 'Journals'], // state.journals,
+    journals: state.journals,
     activeJournal: state.activeJournal
   }
 }
@@ -45,9 +45,9 @@ const JournalSideDrawer = ({
     <section className={drawerClasses.join(' ')}>
       <ul>
         <h2>Journals</h2>
-        {journals.map(journal => (
+        {journals.map((journal, index) => (
           <li
-            key={journal.name}
+            key={index}
 
             onClick={
               () => {
@@ -62,29 +62,4 @@ const JournalSideDrawer = ({
   )
 }
 
-<<<<<<< HEAD
-    return (
-        <section className={drawerClasses.join(' ')}>
-            <ul>
-                <h2>Journals</h2>
-                {journals.map((journal, index) => (
-                    <li
-                        key={index}
-                        
-                        onClick={
-                            () => {
-                                setActive(activeJournal === journal.name ? '' : journal.name)
-                            }
-                        }
-                    > {journal.name} </li>
-                ))}
-            </ul>
-        </section >
-    )
-};
-
-
 export default connect(mapStateToProps, mapDispatchToProps)(JournalSideDrawer)
-=======
-export default connect(mapStateToProps, mapDispatchToProps)(JournalSideDrawer)
->>>>>>> 0c577d39d51af7ba1e95349ec4dc8ee4e8dbd4c5

@@ -4,24 +4,26 @@ import JournalSideDrawer from '../JournalSideDrawer/JournalSideDrawer';
 import JournalBackdrop from '../Backdrop/JournalBackdrop';
 import SettingsSideDrawer from '../SettingsSideDrawer/SettingsSideDrawer';
 import SettingsBackdrop from '../Backdrop/SettingsBackdrop';
-import MainFooter from '../MainFooter'
+// import MainFooter from '../MainFooter'
 import Entries from '../Entries'
 import NewEntry from '../NewEntry'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import Login from '../Login';
+import Login from '../Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import store from '../../Store';
 import { Provider } from 'react-redux';
 
 import MainHeader from '../MainHeader';
-// import MainFooter from "../MainFooter";
 
 class App extends Component {
-	state = {
-		journalDrawerOpen: false,
-		settingsDrawerOpen: false
-	};
+	constructor() {
+		super()
+		this.state = {
+			journalDrawerOpen: false,
+			settingsDrawerOpen: false
+		};
+	}
 
 	///Journal Menu toggler
 	journalDrawerToggleClickHandler = () => {
@@ -65,7 +67,7 @@ class App extends Component {
 		return (
 			<Provider store={store}>
 				<Container className="App">
-					{/* <Login> */}
+					<Login>
 					<MainHeader
 						journalDrawerClickHandler={this.journalDrawerToggleClickHandler}
 						settingsClickHandler={this.settingsToggleClickHandler}
@@ -84,10 +86,10 @@ class App extends Component {
 								<NewEntry />
 							</Route>
 						</Switch>
-						<MainFooter />
+						{/* <MainFooter /> */}
 					</Router>
 
-					{/* </Login> */}
+					</Login>
 				</Container>
 			</Provider>
 		);
