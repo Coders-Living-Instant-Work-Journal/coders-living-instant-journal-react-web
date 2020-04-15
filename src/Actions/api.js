@@ -1,6 +1,6 @@
 import superagent from 'superagent'
 const storeToken = () => 'token';
-const findToken = () => '1';
+const findToken = () => '1'; 
 
 
 const oauthHandler = () => 'original oauth flow fix later';

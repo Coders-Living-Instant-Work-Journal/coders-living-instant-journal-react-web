@@ -38,7 +38,7 @@ const JournalSideDrawer = ({
     const journalFetcher = () => {
         getAllJournals()
     }
-
+// eslint-disable-next-line
     useEffect(() => journalFetcher(), [])
 
 

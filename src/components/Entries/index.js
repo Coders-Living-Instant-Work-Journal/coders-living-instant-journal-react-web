@@ -20,7 +20,7 @@ const Entries = ({ entries, getAllEntries }) => {
   const entriesFetcher = () => {
     getAllEntries();
   };
-
+// eslint-disable-next-line
   useEffect(() => entriesFetcher(), []);
 
   return (
