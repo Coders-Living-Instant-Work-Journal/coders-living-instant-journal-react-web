@@ -4,7 +4,7 @@ import JournalSideDrawer from '../JournalSideDrawer/JournalSideDrawer';
 import JournalBackdrop from '../Backdrop/JournalBackdrop';
 import SettingsSideDrawer from '../SettingsSideDrawer/SettingsSideDrawer';
 import SettingsBackdrop from '../Backdrop/SettingsBackdrop';
-// import MainFooter from '../MainFooter'
+import MainFooter from '../MainFooter'
 import Entries from '../Entries'
 import NewEntry from '../NewEntry'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -86,7 +86,7 @@ class App extends Component {
 								<NewEntry />
 							</Route>
 						</Switch>
-						{/* <MainFooter /> */}
+						<MainFooter />
 					</Router>
 
 					</Login>
