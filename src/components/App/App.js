@@ -9,6 +9,7 @@ import Entries from '../Entries'
 import NewEntry from '../NewEntry'
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import Login from '../Login';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import store from '../../Store';
 import { Provider } from 'react-redux';
@@ -73,11 +74,20 @@ class App extends Component {
 					{journalBackdrop}
 					<SettingsSideDrawer showSettings={this.state.settingsDrawerOpen} />
 					{settingsBackdrop}
-					<Entries />
-					<MainFooter />
-					{/* </Login> */}
 
-					<NewEntry />
+					<Router>
+						<Switch>
+							<Route path="/" exact>
+								<Entries />
+							</Route>
+							<Route path="/new-entry" exact>
+								<NewEntry />
+							</Route>
+						</Switch>
+						<MainFooter />
+					</Router>
+
+					{/* </Login> */}
 				</Container>
 			</Provider>
 		);
