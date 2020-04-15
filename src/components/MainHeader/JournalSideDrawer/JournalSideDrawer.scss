@@ -43,3 +43,31 @@ h2 {
     color: #F9A69A;
     font-weight: bold;
 }
+
+.add-journal-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.new-journal-button, .add-journal-button{
+  color: pink;
+  font-size: 40px;
+  cursor: pointer;
+  
+}
+.new-journal-button, .add-journal-button:hover {
+  background-color: #04bfbf;
+  border-radius: 5px;
+  color: #2e0259
+}
+
+
+.add-journal-button {
+  height: 31px
+}
+
+.new-journal-input {
+  width: 70% !important;
+  justify-content: center;
+}
+

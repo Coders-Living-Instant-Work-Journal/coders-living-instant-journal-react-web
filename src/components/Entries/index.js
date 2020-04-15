@@ -17,11 +17,10 @@ const mapDispatchToProps = {
 }
 
 const Entries = ({ entries, getAllEntries }) => {
-
-  const entryFetcher = function() {
+  const entryFetcher = function () {
     getAllEntries()
   }
-// eslint-disable-next-line
+  // eslint-disable-next-line
   useEffect(() => entryFetcher(), []);
 
   return (

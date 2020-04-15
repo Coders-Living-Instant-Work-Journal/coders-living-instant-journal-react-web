@@ -103,5 +103,5 @@ export {
   getEntries,
   deleteEntryApi,
   putApi,
-  saveJournalApi,
+  saveJournalApi
 }

@@ -20,7 +20,7 @@ export async function createEntry (entry) {
   try {
     await createEntryApi(entry)
   } catch (e) {
-    console.error(e);
+    console.error(e)
     return 'Something went wrong.'
   }
   return 'Entry created!'
@@ -96,6 +96,7 @@ function deleteEntryAction (data) {
 
 // CREATE A NEW JOURNAL
 export function createJournal (journal) {
+  console.log('hello')
   return async function (dispatch) {
     const data = await saveJournalApi(journal)
     return dispatch(createJournalAction(data))

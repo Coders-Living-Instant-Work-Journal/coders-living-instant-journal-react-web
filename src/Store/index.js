@@ -1,10 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
 
-import journals from '../Reducers/journalReducers';
-import activeJournal from '../Reducers/activeJournalReducers';
-import login from '../Reducers/loginReducers';
-import entries from '../Reducers/entriesReducers';
-import activePage from '../Reducers/activePageReducer';
+import journals from '../Reducers/journalReducers'
+import activeJournal from '../Reducers/activeJournalReducers'
+import login from '../Reducers/loginReducers'
+import entries from '../Reducers/entriesReducers'
+import activePage from '../Reducers/activePageReducer'
 
 const store = configureStore({
   reducer: {
@@ -12,8 +12,8 @@ const store = configureStore({
     journals,
     activeJournal,
     login,
-    entries,
-  },
-});
+    entries
+  }
+})
 
-export default store;
+export default store
