@@ -13,7 +13,7 @@ import {
 
 const mapStateToProps = state => {
     return {
-        journals: state.journals,
+        journals: ['Testing','Work'],//so map doesn't fail
         activeJournal: state.activeJournal
     }
 }

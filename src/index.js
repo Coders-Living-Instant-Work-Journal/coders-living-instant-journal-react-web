@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from '../src/components/App/App';
 import * as serviceWorker from './serviceWorker';
+// import { useCookies } from 'react-cookie'
+
+// const [cookies, setCookie, getCookie, removeCookie] = useCookies(['connect.sid'])
+
+// useEffect(() => {
+//   if ()
+// })
 
 ReactDOM.render(
   <React.StrictMode>
