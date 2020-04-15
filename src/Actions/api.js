@@ -1,132 +1,107 @@
 import superagent from 'superagent'
-const { storeToken, findToken } = () => 'token'
+import cookie from 'react-cookies'
 
-const exitHandler = () => 'this is how we handle the api response'
+const storeToken = () => 'token'
+const token = cookie.load('Auth-Token')
+
 const oauthHandler = () => 'original oauth flow fix later'
-const jwt = 0
+// const jwt = 0;
 // constants
+
 // const API_SERVER_URI = 'https://clij.herokuapp.com'
-const API_SERVER_URI = 'http://localhost:3005'
+const API_SERVER_URI = 'http://localhost:3000'
 
 // functions
-// ----- SEND NEW USER SIGN UP TO API
-
-async function exchangeToken (credentials) {
-  const response = await superagent.post(`${API_SERVER_URI}/authenticate`)
-    .send(credentials)
-  if (response.body.token) {
-    // this is where we will get Token from local storage
-    storeToken(response.body.token)
-    return true
-  } else {
-    return false
-  }
-}
-async function signUpOauth (provider) {
-  // complete the oauth handshake with the provider.
-  await oauthHandler.start(provider)
-  oauthHandler.close()
-  // get the credentials from the fs
-  const raw = await findToken('oauth')
-  const credentials = JSON.parse(raw)
-  return credentials
-}
 // ----- SENDS NEW JOURNAL TO API
-function saveJournalApi (journal) {
-  superagent
+async function saveJournalApi (journal) {
+  return superagent
+
     .post(`${API_SERVER_URI}/createj`)
-    .set('Authorization', findToken())
+    .set('Authorization', token)
     .send({ name: journal })
-    .then((res) => exitHandler(res.text))
     .catch((err) => console.error(err))
 }
 // retrieves journals from API
-function getJournals () {
+async function getJournals () {
   return superagent
     .get(`${API_SERVER_URI}/readj`)
-    .set('Authorization', findToken())
-    .then((res) => {
-      return res.body
-    })
+    .set('Authorization', token)
     .catch((err) => console.error(err.message))
 }
-function putApi (entry) {
-  superagent
+
+// UPDATES AN ENTRY
+async function putApi (entry) {
+  return superagent
+
     .put(`${API_SERVER_URI}/update`)
-    .set('Authorization', findToken())
+    .set('Authorization', token)
     .send(entry)
-    .then((res) => exitHandler(res.text))
     .catch((err) => console.error(err.message))
 }
 // DELETE
-function deleteEntry (id) {
-  superagent
+async function deleteEntryApi (id) {
+  return superagent
+
     .delete(`${API_SERVER_URI}/delete`)
-    .set('Authorization', findToken())
+    .set('Authorization', token)
     .send(id)
-    .then((res) => exitHandler(res.text))
     .catch((err) => console.error(err.message))
 }
 // ----- DISPLAY ALL or AFTER FILTERING BY CATERGORY, DATE, or BOTH - queries api by filter
-function getEntries (filter) {
-  return superagent
-    .get(`${API_SERVER_URI}/read`)
-    // .set("Authorization", findToken())
-    .send(filter)
-    .then((res) => {
-      return res.body
-    })
-    .catch((err) => console.error('thrown error', err.message))
+async function getEntries (filter) {
+  console.log('made it to get entries')
+  try {
+    return superagent
+      .get(`${API_SERVER_URI}/read`)
+      .set('Authorization', token)
+      .send(filter)
+  } catch (e) {
+    console.error(e)
+  }
 }
 // QUERIES API TO UPDATE JOURNAL NAME
-function updateJournalApi (journal, name) {
-  superagent
+async function updateJournalApi (journal, name) {
+  return superagent
+
     .put(`${API_SERVER_URI}/updatej`)
-    .set('Authorization', findToken())
+    .set('Authorization', token)
     .send({ id: journal._id, name: name })
-    .then((res) => exitHandler(res.text))
     .catch((err) => console.error(err.message))
 }
 // QUERIES API TO CHANGE DEFAULT JOURNAL
 async function selectJournal (journal) {
   await superagent
     .post(`${API_SERVER_URI}/selectj`)
-    .set('Authorization', findToken())
+    .set('Authorization', token)
     .send({ jId: journal._id, name: journal.name })
-    .then((res) => exitHandler(res.text))
     .catch((err) => console.error(err.message))
 }
 // CRUD FUNCTIONS
-function postApi (entry) {
-  superagent
+async function createEntryApi (entry) {
+  return superagent
+
     .post(`${API_SERVER_URI}/create`)
-    .set('Authorization', findToken())
+    .set('Authorization', token)
     .send(entry)
-    .then((res) =>
-      exitHandler(`Entry successfully created with id:${res.body.entry._id}`)
-    )
     .catch((err) => console.error(err.message))
 }
 // DELETES JOURNAL
-function deleteJournal (journal) {
+async function deleteJournalApi (journal) {
   superagent
     .delete(`${API_SERVER_URI}/deletej`)
-    .set('Authorization', findToken())
+    .set('Authorization', token)
     .send({ id: journal._id })
-    .then((res) => console.log(res.text))
     .catch((err) => console.log(err.message))
 }
 export {
 
   getJournals,
   updateJournalApi,
-  deleteJournal,
-  postApi,
+  deleteJournalApi,
+  createEntryApi,
   selectJournal,
   getEntries,
-  deleteEntry,
+  deleteEntryApi,
   putApi,
   saveJournalApi,
-  signUpOauth,
-  exchangeToken
 }

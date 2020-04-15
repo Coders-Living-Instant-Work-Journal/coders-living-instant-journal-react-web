@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getAllEntries } from '../../Actions/index'
 import { Row, Col, Container } from 'react-bootstrap'
+import { v4 as uuidv4 } from 'uuid'
 
 import './Entries.scss'
 
@@ -16,11 +17,12 @@ const mapDispatchToProps = {
 }
 
 const Entries = ({ entries, getAllEntries }) => {
-  const entriesFetcher = () => {
+
+  const entryFetcher = function() {
     getAllEntries()
   }
-
-  useEffect(() => entriesFetcher(), [])
+// eslint-disable-next-line
+  useEffect(() => entryFetcher(), []);
 
   return (
     <>
@@ -29,12 +31,12 @@ const Entries = ({ entries, getAllEntries }) => {
       <Container>
         {entries.map((entry) => (
           <>
-            <Row className='entry-headers'>
-              <Col>{entry.date}</Col>
-              <Col>{entry.category}</Col>
+            <Row className='entry-headers' key={entry._id}>
+              <Col key={uuidv4()}>{entry.date}</Col>
+              <Col key={uuidv4()}>{entry.category}</Col>
             </Row>
-            <Row>
-              <Col className='entry-text'>{entry.text}</Col>
+            <Row key={uuidv4()}>
+              <Col className='entry-text' key={uuidv4()}>{entry.text}</Col>
             </Row>
           </>
         ))}

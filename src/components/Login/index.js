@@ -54,7 +54,7 @@ const googleLogin = () => {
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: state.loginReducer.loggedIn
+    loggedIn: state.login.loggedIn
   }
 }
 
