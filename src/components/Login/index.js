@@ -6,6 +6,8 @@ import cookie from 'react-cookies'
 
 import * as authActions from '../../Actions/auth'
 
+import queryString from 'query-string'
+
 import './login.scss'
 
 // images
@@ -63,7 +65,15 @@ const mapDispatchToProps = {
 }
 
 const Login = ({ loggedIn, login, children }) => {
-  const token = cookie.load('Auth-Token')
+  let token
+  const maybeToken = queryString.parse(window.location.search)?.token
+  if (maybeToken) {
+    token = maybeToken
+    cookie.save('Auth-Token', token)
+    window.history.replaceState(null,null,window.location.pathname)
+  } else {
+    token = cookie.load('Auth-Token')
+  }
 
   const LoginPage = (
     <>
