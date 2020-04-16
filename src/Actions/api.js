@@ -58,12 +58,11 @@ async function getEntries (filter) {
   }
 }
 // QUERIES API TO UPDATE JOURNAL NAME
-async function updateJournalApi (journal, name) {
+async function updateJournalApi (journal) {
   return superagent
-
     .put(`${API_SERVER_URI}/updatej`)
     .set('Authorization', token)
-    .send({ id: journal._id, name: name })
+    .send(journal)
     .catch((err) => console.error(err.message))
 }
 // QUERIES API TO CHANGE DEFAULT JOURNAL
@@ -84,7 +83,7 @@ async function createEntryApi (entry) {
     .catch((err) => console.error(err.message))
 }
 // DELETES JOURNAL
-async function deleteJournalApi (journal) {
+async function deleteJournalApi(journal) {
   superagent
     .delete(`${API_SERVER_URI}/deletej`)
     .set('Authorization', token)
