@@ -12,16 +12,15 @@ const API_SERVER_URI = 'https://clij.herokuapp.com'
 
 // functions
 // ----- SENDS NEW JOURNAL TO API
-async function saveJournalApi (journal) {
+async function saveJournalApi(journal) {
   return superagent
-
     .post(`${API_SERVER_URI}/createj`)
     .set('Authorization', token)
     .send({ name: journal })
     .catch((err) => console.error(err))
 }
 // retrieves journals from API
-async function getJournals () {
+async function getJournals() {
   return superagent
     .get(`${API_SERVER_URI}/readj`)
     .set('Authorization', token)
@@ -29,7 +28,7 @@ async function getJournals () {
 }
 
 // UPDATES AN ENTRY
-async function putApi (entry) {
+async function putApi(entry) {
   return superagent
 
     .put(`${API_SERVER_URI}/update`)
@@ -38,17 +37,17 @@ async function putApi (entry) {
     .catch((err) => console.error(err.message))
 }
 // DELETE
-async function deleteEntryApi (id) {
+async function deleteEntryApi(id) {
+  console.log('delete entry id', id)
   return superagent
 
     .delete(`${API_SERVER_URI}/delete`)
     .set('Authorization', token)
-    .send(id)
+    .send({ id: id })
     .catch((err) => console.error(err.message))
 }
 // ----- DISPLAY ALL or AFTER FILTERING BY CATERGORY, DATE, or BOTH - queries api by filter
-async function getEntries (filter) {
-  console.log('made it to get entries')
+async function getEntries(filter) {
   try {
     return superagent
       .get(`${API_SERVER_URI}/read`)
@@ -59,16 +58,15 @@ async function getEntries (filter) {
   }
 }
 // QUERIES API TO UPDATE JOURNAL NAME
-async function updateJournalApi (journal, name) {
+async function updateJournalApi(journal) {
   return superagent
-
     .put(`${API_SERVER_URI}/updatej`)
     .set('Authorization', token)
-    .send({ id: journal._id, name: name })
+    .send(journal)
     .catch((err) => console.error(err.message))
 }
 // QUERIES API TO CHANGE DEFAULT JOURNAL
-async function selectJournal (journal) {
+async function selectJournal(journal) {
   await superagent
     .post(`${API_SERVER_URI}/selectj`)
     .set('Authorization', token)
@@ -76,7 +74,7 @@ async function selectJournal (journal) {
     .catch((err) => console.error(err.message))
 }
 // CRUD FUNCTIONS
-async function createEntryApi (entry) {
+async function createEntryApi(entry) {
   return superagent
 
     .post(`${API_SERVER_URI}/create`)
@@ -85,7 +83,7 @@ async function createEntryApi (entry) {
     .catch((err) => console.error(err.message))
 }
 // DELETES JOURNAL
-async function deleteJournalApi (journal) {
+async function deleteJournalApi(journal) {
   superagent
     .delete(`${API_SERVER_URI}/deletej`)
     .set('Authorization', token)

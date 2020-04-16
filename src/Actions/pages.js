@@ -1,3 +1,3 @@
-export function changePage (newPage) {
-  return { action: 'CHANGE_PAGE', payload: newPage}
+export const changePage = (newPage) => {
+  return { type: 'CHANGE_PAGE', payload: newPage }
 }
