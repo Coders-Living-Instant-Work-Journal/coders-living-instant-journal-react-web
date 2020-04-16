@@ -66,9 +66,7 @@ function getOneEntryAction(data) {
 // UPDATES AN ENTRY
 export function updateEntry(entry) {
   return async function (dispatch) {
-    console.log('update entry call')
     const data = await putApi(entry)
-    console.log('update entry data', data)
     return dispatch(updateEntryAction(data))
   }
 }
@@ -121,16 +119,11 @@ function getAllJournalsAction(data) {
 
 // CHANGE JOURNAL NAME
 export function updateJournalName(journal) {
+  console.log({ id: Object.keys(journal)[0], name: Object.values(journal)[0] })
   return async function (dispatch) {
-    const data = await updateJournalApi(journal)
-    return dispatch(updateJournalNameAction(data))
-  }
-}
-
-function updateJournalNameAction(data) {
-  return {
-    type: 'UPDATE_JOURNAL',
-    payload: data.body
+    await updateJournalApi({ id: Object.keys(journal)[0], name: Object.values(journal)[0] })
+    const data = await getJournals()
+    return dispatch(getAllJournalsAction(data))
   }
 }
 
@@ -151,15 +144,10 @@ function changeDefaultJournalAction(data) {
 
 // DELETE JOURNAL
 export function deleteJournal(journal) {
+  console.log('journal', journal)
   return async function (dispatch) {
-    const data = await deleteJournalApi(journal)
-    return dispatch(deleteJournalApiAction(data))
-  }
-}
-
-function deleteJournalApiAction(data) {
-  return {
-    type: 'DELETE_JOURNAL',
-    payload: data.body
+    await deleteJournalApi(journal)
+    const data = await getJournals()
+    return dispatch(getAllJournalsAction(data))
   }
 }

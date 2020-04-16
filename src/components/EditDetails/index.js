@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { getAllEntries, updateEntry, getOneEntry } from '../../Actions/index'
 import { connect } from 'react-redux'
 import { Button, Form } from 'react-bootstrap'
 
 import { changePage } from '../../Actions/pages.js'
 import { useForm } from 'react-hook-form'
+import './EditDetails.scss'
 
 const mapStateToProps = (state) => {
   return {
@@ -39,11 +40,27 @@ const EditDetails = ({ entries, entryId, updateEntry, changePage }) => {
     reset()
     changePage('HOME')
   }
+
+  const entriesFetcher = () => {
+    getAllEntries()
+  }
+  // eslint-disable-next-line
+  useEffect(() => entriesFetcher(), []);
+
   return (
     <>
 
 
       <Form className='edit-details' onSubmit={handleSubmit(onSubmit)}>
+
+        <Form.Group className='id-input' controlId='idInput'>
+          <Form.Control type='id' name='id' ref={register} defaultValue={entryId} />
+          <Form.Text className='text-update'>
+          </Form.Text>
+        </Form.Group>
+
+
+
         <Form.Group controlId='categoryInput'>
           <Form.Label>Update Category</Form.Label>
           <Form.Control type='category' name='category' ref={register} defaultValue={entry.category} />

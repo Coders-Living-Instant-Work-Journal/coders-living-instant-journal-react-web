@@ -34,7 +34,7 @@ const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails,
       <h1 className='title'>Journal Entries</h1>
 
       <Container>
-        {entries.map((entry) => (
+        {entries[0] === "No entries found." ? "You don't have any entries for this journal." : entries.map((entry) => (
           <>
 
             <div

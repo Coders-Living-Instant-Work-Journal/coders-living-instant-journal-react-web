@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { getAllJournals, setActive, createJournal } from '../../../Actions'
+import { getAllJournals, setActive, createJournal, deleteJournal, updateJournalName } from '../../../Actions'
 import { Form } from 'react-bootstrap'
-import { TiDelete } from 'react-icons/ti'
-import { MdEdit, MdAdd } from 'react-icons/md'
 import './JournalSideDrawer.scss'
 import { connect } from 'react-redux'
 import { useForm } from 'react-hook-form'
+import JournalForm from './JournalForm'
+import {MdAdd } from 'react-icons/md'
+
 
 const mapStateToProps = (state) => {
   return {
@@ -17,7 +18,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   getAllJournals,
   setActive,
-  createJournal
+  createJournal,
+  deleteJournal,
+  updateJournalName
 }
 
 const JournalSideDrawer = ({
@@ -26,10 +29,12 @@ const JournalSideDrawer = ({
   getAllJournals,
   setActive,
   showJournal,
-  createJournal
+  createJournal,
+  deleteJournal,
+  updateJournalName
 }) => {
   // hooks
-  const [newJournalInput, setNewJournalInput] = useState(true)
+  const [newJournalInput, setNewJournalInput] = useState(false)
 
   let drawerClasses = ['side-drawer']
   if (showJournal) {
@@ -75,17 +80,8 @@ const JournalSideDrawer = ({
             </button>
           </Form>
         )}
-        {journals.map((journal, index) => (
-          <li
-            key={index}
-            onClick={() => {
-              setActive(activeJournal === journal.name ? '' : journal.name)
-            }}
-          >
-            {' '}
-            {journal.name}{' '}
-          </li>
-        ))}
+        {journals.map((journal) => (
+          <JournalForm journal={journal} />))}
       </ul>
     </section>
   )
