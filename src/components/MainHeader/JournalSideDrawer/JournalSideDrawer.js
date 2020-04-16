@@ -49,7 +49,7 @@ const JournalSideDrawer = ({
     setNewJournalInput(false)
     reset()
   }
-  console.log('journals', journals)
+
   return (
     <section className={drawerClasses.join(' ')}>
       <ul>

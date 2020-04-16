@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
 import MainHeader from '../MainHeader'
+
 import Entries from '../Entries'
 import NewEntry from '../NewEntry'
 import EntryDetails from '../EntryDetails'
@@ -18,23 +19,25 @@ import './App.scss'
 import { Pages } from '../../Reducers/activePageReducer'
 
 const mapStateToProps = (state) => {
-  return {
-    activePage: state.activePage
-  }
+	return {
+		activePage: state.activePage
+	}
 }
 
-function App ({ activePage, changePage }) {
-  console.log('activePage', activePage, 'all pges: ', Pages)
-  return (
-    <Container className='App'>
-      <Login>
-        <MainHeader />
-        {activePage === Pages.HOME && <Entries />}
-        {activePage === Pages.NEW_ENTRY && <NewEntry />}
-        {activePage === Pages.ENTRY_DETAILS && <EntryDetails />}
-      </Login>
-    </Container>
-  )
+function App({ activePage, changePage }) {
+
+	return (
+		<Container className='App'>
+			<Login>
+				<MainHeader />
+				{activePage === Pages.HOME && <Entries />}
+				{activePage === Pages.NEW_ENTRY && <NewEntry />}
+				{activePage === Pages.ENTRY_DETAILS && <EntryDetails />}
+				{/* <NewEntry /> */}
+			</Login>
+
+		</Container>
+	)
 }
 
 export default connect(mapStateToProps, { changePage })(App)

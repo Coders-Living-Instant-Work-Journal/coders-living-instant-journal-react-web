@@ -27,27 +27,34 @@ const NewEntry = ({ entries, getAllEntries }) => {
   }
   // eslint-disable-next-line
   useEffect(() => entriesFetcher(), []);
+
+  const categories = entries.map(entry => entry.category)
+  const uniqueCategories = [...new Set(categories)]
+
   return (
     <>
       <div className='save-state'>{message}</div>
       <Form className='entry-form' onSubmit={handleSubmit(onSubmit)}>
         <Form.Group controlId='controlSelect1'>
-          <Form.Label>Category</Form.Label>
+
 
           <Form.Control as='select' name='category' ref={register}>
-            {entries.map((entry, index) => (
-              <option key={index} value={entry.category}>{entry.category}</option>
+            <option>--- Cateogries --- </option>
+            {uniqueCategories.map((category, index) => (
+              // replace banana with entry.cateogory
+              <option key={index} value={category}>Banana</option>
             ))}
           </Form.Control>
         </Form.Group>
 
         <Form.Group controlId='controlTextarea1'>
-          <Form.Label>Entry Text</Form.Label>
+          {/* not passing back as text to create route */}
+
           <Form.Control
             as='textarea'
             rows='3'
             placeholder='Start your entry here...'
-            name='textarea'
+            name='text'
             ref={register}
           />
         </Form.Group>
