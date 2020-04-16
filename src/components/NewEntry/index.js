@@ -3,6 +3,8 @@ import { Form, Button } from 'react-bootstrap'
 import { getAllEntries, createEntry } from '../../Actions/index'
 import { connect } from 'react-redux'
 import { useForm } from 'react-hook-form'
+import { changePage } from '../../Actions/pages'
+import { v4 as uuidv4 } from 'uuid'
 import './NewEntry.scss'
 const mapStateToProps = (state) => {
   return {
@@ -11,15 +13,18 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  getAllEntries
+  getAllEntries,
+  changePage,
+  createEntry
 }
 
-const NewEntry = ({ entries, getAllEntries }) => {
+const NewEntry = ({ entries, getAllEntries, changePage, createEntry }) => {
   const { register, handleSubmit, reset } = useForm()
-  let message = ''
+
   const onSubmit = async (data) => {
-    message = await createEntry(data)
+    await createEntry(data)
     reset()
+    changePage('HOME')
   }
 
   const entriesFetcher = () => {
@@ -28,12 +33,11 @@ const NewEntry = ({ entries, getAllEntries }) => {
   // eslint-disable-next-line
   useEffect(() => entriesFetcher(), []);
 
-  const categories = entries.map(entry => entry.category)
+  const categories = ['Wine', ...entries.map(entry => entry.category)]
   const uniqueCategories = [...new Set(categories)]
 
   return (
     <>
-      <div className='save-state'>{message}</div>
       <Form className='entry-form' onSubmit={handleSubmit(onSubmit)}>
         <Form.Group controlId='controlSelect1'>
 
@@ -41,8 +45,8 @@ const NewEntry = ({ entries, getAllEntries }) => {
           <Form.Control as='select' name='category' ref={register}>
             <option>--- Cateogries --- </option>
             {uniqueCategories.map((category, index) => (
-              // replace banana with entry.cateogory
-              <option key={index} value={category}>Banana</option>
+              // replace banana with {category}
+              <option key={uuidv4()} value={category}>{category}</option>
             ))}
           </Form.Control>
         </Form.Group>

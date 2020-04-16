@@ -37,7 +37,7 @@ const EditDetails = ({ entries, entryId, updateEntry, changePage }) => {
     console.log('data in the form', data)
     updateEntry(data)
     reset()
-    // changePage here
+    changePage('HOME')
   }
   return (
     <>
@@ -61,7 +61,7 @@ const EditDetails = ({ entries, entryId, updateEntry, changePage }) => {
             ref={register}
           />
         </Form.Group>
-        <Button onClick={() => { changePage('HOME') }} variant='primary' type='submit'>
+        <Button variant='primary' type='submit'>
           Submit
         </Button>
       </Form>

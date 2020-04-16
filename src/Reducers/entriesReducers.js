@@ -1,7 +1,7 @@
 const entriesReducer = (state = [], action) => {
   switch (action.type) {
     case 'GET_ALL_ENTRIES':
-      return [...state, ...action.payload]
+      return action.payload
     case 'GET_ONE_ENTRY':
       return action.payload
     case 'DELETE_ENTRY':

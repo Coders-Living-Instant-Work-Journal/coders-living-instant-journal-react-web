@@ -16,22 +16,19 @@ export const setActive = (name) => ({
 })
 
 // CREATE NEW ENTRY
-export async function createEntry(entry) {
-  try {
-    await createEntryApi(entry)
-  } catch (e) {
-    console.error(e)
-    return 'Something went wrong.'
+export function createEntry(entry) {
+  return async function (dispatch) {
+    const data = await createEntryApi(entry)
+    return dispatch(createEntryAction(data))
   }
-  return 'Entry created!'
 }
 
-// function createEntryAction(data) {
-//   return {
-//     type: "CREATE-_ENTRY",
-//     payload: data.body,
-//   };
-// }
+function createEntryAction(data) {
+  return {
+    type: 'CREATE_ENTRY',
+    payload: data.body
+  }
+}
 
 // GET ALL ENTRIES
 export function getAllEntries() {
@@ -71,6 +68,7 @@ export function updateEntry(entry) {
   return async function (dispatch) {
     console.log('update entry call')
     const data = await putApi(entry)
+    console.log('update entry data', data)
     return dispatch(updateEntryAction(data))
   }
 }

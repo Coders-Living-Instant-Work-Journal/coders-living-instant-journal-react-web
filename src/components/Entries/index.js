@@ -28,7 +28,7 @@ const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails,
   }
   // eslint-disable-next-line
   useEffect(() => entryFetcher(), []);
-
+  console.log('entriessss', entries)
   return (
     <>
       <h1 className='title'>Journal Entries</h1>
@@ -49,7 +49,7 @@ const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails,
                 <Col key={uuidv4()}>{entry.category}</Col>
               </Row>
               <Row key={uuidv4()}>
-                <Col className='entry-text' key={uuidv4()}>{entry.text.substring(0, 60) + '...'}</Col>
+                <Col className='entry-text' key={uuidv4()}>{entry.text && entry.text.length > 60 ? entry.text.substring(0, 60) + '...' : entry.text}</Col>
               </Row>
             </div>
           </>
