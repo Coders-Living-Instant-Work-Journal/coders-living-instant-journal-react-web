@@ -17,8 +17,8 @@ import google from '../../assets/google.png'
 const githubLogin = () => {
   const URL = 'https://github.com/login/oauth/authorize'
   const options = {
-    client_id: '631f20f7051b78aa521c',
-    redirect_uri: 'http://localhost:3000/gitHubOAuth',
+    client_id: 'cc007407f284938fff4d',
+    redirect_uri: 'https://clij.herokuapp.com/gitHubOAuth',
     scope: '',
     state: 'thisIsMyState'
   }
@@ -33,15 +33,15 @@ const githubLogin = () => {
 
 const TOKEN_SERVER_URL = 'https://oauth2.googleapis.com/token'
 const CLIENT_ID = '658078245679-9challjqn1drnapsmb4q2n27amg1u5sm.apps.googleusercontent.com'
-const API_SERVER = 'http://localhost:3000/oauth'
+const API_SERVER = 'https://clij.herokuapp.com/oauth'
 
 const googleLogin = () => {
   const URL = TOKEN_SERVER_URL
   const options = {
     client_id: CLIENT_ID,
     redirect_uri: API_SERVER,
-    scope: '',
-    state: 'thisIsMyState'
+    // code: code,
+    grant_type: 'authorization_code'
   }
 
   const queryString = Object.keys(options).map(key => {
@@ -61,8 +61,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   login: authActions.userLogIn
 }
-
-// superagent.post('http://localhost:3000/testroute').set(‘authorization’, `bearer ${token}`);
 
 const Login = ({ loggedIn, login, children }) => {
   const token = cookie.load('Auth-Token')

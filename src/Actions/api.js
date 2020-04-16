@@ -8,8 +8,7 @@ const oauthHandler = () => 'original oauth flow fix later'
 // const jwt = 0;
 // constants
 
-// const API_SERVER_URI = 'https://clij.herokuapp.com'
-const API_SERVER_URI = 'http://localhost:3000'
+const API_SERVER_URI = 'https://clij.herokuapp.com'
 
 // functions
 // ----- SENDS NEW JOURNAL TO API
@@ -103,5 +102,5 @@ export {
   getEntries,
   deleteEntryApi,
   putApi,
-  saveJournalApi,
+  saveJournalApi
 }
