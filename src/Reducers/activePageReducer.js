@@ -1,7 +1,8 @@
 export const Pages = {
   HOME: 'HOME',
   NEW_ENTRY: 'NEW_ENTRY',
-  ENTRY_DETAILS: 'ENTRY_DETAILS'
+  ENTRY_DETAILS: 'ENTRY_DETAILS',
+  EDIT_DETAILS: 'EDIT_DETAILS'
 }
 
 const activePageReducer = (state = Pages.HOME, action) => {

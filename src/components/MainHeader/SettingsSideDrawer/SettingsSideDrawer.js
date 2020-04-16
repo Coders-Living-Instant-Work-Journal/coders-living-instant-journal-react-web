@@ -1,9 +1,9 @@
-import React, { Link } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+// import { connect } from 'react-redux'
 import './SettingsSideDrawer.scss'
 
 import cookie from 'react-cookies'
-import { Button } from 'react-bootstrap'
+// import { Button } from 'react-bootstrap'
 
 const onLogOut = () => {
   cookie.remove('Auth-Token', { path: '/' })

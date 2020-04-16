@@ -5,6 +5,7 @@ import activeJournal from '../Reducers/activeJournalReducers'
 import login from '../Reducers/loginReducers'
 import entries from '../Reducers/entriesReducers'
 import activePage from '../Reducers/activePageReducer'
+import entryId from '../Reducers/entryIdReducer'
 
 const store = configureStore({
   reducer: {
@@ -12,7 +13,8 @@ const store = configureStore({
     journals,
     activeJournal,
     login,
-    entries
+    entries,
+    entryId
   }
 })
 
