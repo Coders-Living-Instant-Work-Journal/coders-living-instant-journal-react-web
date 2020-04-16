@@ -15,7 +15,6 @@ const API_SERVER_URI = 'http://localhost:3000'
 // ----- SENDS NEW JOURNAL TO API
 async function saveJournalApi (journal) {
   return superagent
-
     .post(`${API_SERVER_URI}/createj`)
     .set('Authorization', token)
     .send({ name: journal })
@@ -49,7 +48,6 @@ async function deleteEntryApi (id) {
 }
 // ----- DISPLAY ALL or AFTER FILTERING BY CATERGORY, DATE, or BOTH - queries api by filter
 async function getEntries (filter) {
-  console.log('made it to get entries')
   try {
     return superagent
       .get(`${API_SERVER_URI}/read`)
@@ -60,12 +58,11 @@ async function getEntries (filter) {
   }
 }
 // QUERIES API TO UPDATE JOURNAL NAME
-async function updateJournalApi (journal, name) {
+async function updateJournalApi (journal) {
   return superagent
-
     .put(`${API_SERVER_URI}/updatej`)
     .set('Authorization', token)
-    .send({ id: journal._id, name: name })
+    .send(journal)
     .catch((err) => console.error(err.message))
 }
 // QUERIES API TO CHANGE DEFAULT JOURNAL
@@ -86,7 +83,7 @@ async function createEntryApi (entry) {
     .catch((err) => console.error(err.message))
 }
 // DELETES JOURNAL
-async function deleteJournalApi (journal) {
+async function deleteJournalApi(journal) {
   superagent
     .delete(`${API_SERVER_URI}/deletej`)
     .set('Authorization', token)
@@ -103,5 +100,5 @@ export {
   getEntries,
   deleteEntryApi,
   putApi,
-  saveJournalApi,
+  saveJournalApi
 }

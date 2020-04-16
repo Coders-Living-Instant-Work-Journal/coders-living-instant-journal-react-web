@@ -17,11 +17,10 @@ const mapDispatchToProps = {
 }
 
 const Entries = ({ entries, getAllEntries }) => {
-
-  const entryFetcher = function() {
+  const entryFetcher = function () {
     getAllEntries()
   }
-// eslint-disable-next-line
+  // eslint-disable-next-line
   useEffect(() => entryFetcher(), []);
 
   return (
@@ -31,7 +30,7 @@ const Entries = ({ entries, getAllEntries }) => {
       <Container>
         {entries.map((entry) => (
           <>
-            <Row className='entry-headers' key={entry._id}>
+            <Row className='entry-headers' key={uuidv4()}>
               <Col key={uuidv4()}>{entry.date}</Col>
               <Col key={uuidv4()}>{entry.category}</Col>
             </Row>

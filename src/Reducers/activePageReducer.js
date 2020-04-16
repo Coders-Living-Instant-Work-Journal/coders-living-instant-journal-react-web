@@ -4,14 +4,13 @@ export const Pages = {
   ENTRY_DETAILS: 'ENTRY_DETAILS'
 }
 
-
 const activePageReducer = (state = Pages.HOME, action) => {
   switch (action.type) {
     case 'CHANGE_PAGE':
-      return Pages[action.payload];
+      return Pages[action.payload]
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default activePageReducer;
+export default activePageReducer
