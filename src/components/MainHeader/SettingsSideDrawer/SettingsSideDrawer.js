@@ -20,6 +20,9 @@ const SettingsDrawer = props => {
       <ul>
         <li><a href='/'>Email Settings</a></li>
         <li><a href='/' onClick={onLogOut}>Log Out</a></li>
+        <li>_________________________</li>
+        <li><a href='/'>Instructions</a></li>
+        <li><a href='/'>About</a></li>
 
       </ul>
     </section>
