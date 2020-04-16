@@ -47,7 +47,7 @@ const NewEntry = ({ entries, getAllEntries }) => {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group controlId='controlTextarea1'>
+        <Form.Group controlId='textAreaInput'>
           {/* not passing back as text to create route */}
 
           <Form.Control

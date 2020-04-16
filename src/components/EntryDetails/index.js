@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { getAllEntries, deleteEntry, getOneEntry } from '../../Actions/index'
 import { connect } from 'react-redux'
 import { Row, Col, Container, Button } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
 import { changePage } from '../../Actions/pages.js'
+
 
 const mapStateToProps = (state) => {
   return {
@@ -46,6 +47,8 @@ const EntryDetails = ({ entries, entryId, deleteEntry, changePage }) => {
           <Col className='entry-text' key={uuidv4()}>{entry.text}</Col>
         </Row>
       </Container>
+
+      <Button onClick={() => { changePage('EDIT_DETAILS') }}>Edit Entry</Button>
     </>
   )
 }

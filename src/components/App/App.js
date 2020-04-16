@@ -1,9 +1,8 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
-
+import EditDetails from '../EditDetails'
 import MainHeader from '../MainHeader'
-
 import Entries from '../Entries'
 import NewEntry from '../NewEntry'
 import EntryDetails from '../EntryDetails'
@@ -33,7 +32,7 @@ function App({ activePage, changePage }) {
 				{activePage === Pages.HOME && <Entries />}
 				{activePage === Pages.NEW_ENTRY && <NewEntry />}
 				{activePage === Pages.ENTRY_DETAILS && <EntryDetails />}
-				{/* <NewEntry /> */}
+				{activePage === Pages.EDIT_DETAILS && <EditDetails />}
 			</Login>
 
 		</Container>

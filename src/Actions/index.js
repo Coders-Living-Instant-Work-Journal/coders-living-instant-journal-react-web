@@ -69,6 +69,7 @@ function getOneEntryAction(data) {
 // UPDATES AN ENTRY
 export function updateEntry(entry) {
   return async function (dispatch) {
+    console.log('update entry call')
     const data = await putApi(entry)
     return dispatch(updateEntryAction(data))
   }
