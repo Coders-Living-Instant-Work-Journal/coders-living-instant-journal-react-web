@@ -1,35 +1,336 @@
-.homebar {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+// ------- Mobile View ------ //
+@media (max-width: 767px) {
+  body {
+    height: 100vh;
+    min-width: 320px;
+    max-width: 767px;
+    overflow: scroll;
+    background-image: url("../../assets/background.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  // .right-side {
+  //   margin-bottom: 50px;
+  // }
+
+  // .left-side Col {
+  //   max-width: 767;
+
+  // }
+
+  .login-button {
+    font-family: "Ubuntu Mono", monospace;
+    color: #04bfbf;
+  }
+  .login-button:hover {
+    color: #f75584;
+    text-decoration: none;
+  }
   .homelogo {
+    // display: flex;
+    width: 40%;
+    // justify-content: center;
+  }
+
+  .github {
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(5px 5px 5px rgba(248, 248, 248, 0.753));
+    margin-top: 50%;
     padding: 5px;
     height: 80px;
-    width: 80px;
+    cursor: pointer;
   }
-  div {
-    padding: 10px;
+
+  .github:hover {
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(5px 5px 5px (#04bfbfa4));
+    margin-top: 50%;
+    padding: 5px;
+    height: 80px;
+    cursor: pointer;
+  }
+
+  .CLIJ {
+    visibility: hidden;
+    position: relative;
+  }
+
+  .CLIJ:after {
+    visibility: visible;
+    content: "CLIJ";
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: bold;
+    font-size: 4em;
+    color: white;
+    border-right: 0.15em solid #04bfbf;
+    animation: blink-caret2 0.5s step-end infinite;
+  }
+
+  // @keyframes typing {
+  //   from {
+  //     width: 0;
+  //   }
+  // }
+
+  // @-webkit-keyframes typing {
+  //   from {
+  //     width: 0;
+  //   }
+  // }
+
+  @keyframes blink-caret2 {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #04bfbf;
+    }
+  }
+
+  .log-in-prompt {
+    display: none;
+  }
+
+  .right-side {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer {
+    margin-bottom: -60px;
   }
 }
 
-.login {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  margin-top: 200px;
-  Button {
-    margin-right: 10px;
-    height: 40px;
-    width: 80px;
+// ------ desktop view ------- //
+@media (min-width: 768px) {
+  // ------- Left Side Of Page ------ //
+  .left-side {
+    background: radial-gradient(
+      circle,
+      rgba(116, 93, 140, 1) 14%,
+      rgba(45, 2, 89, 0.986) 71%,
+      rgba(4, 0, 8, 1) 99%
+    );
+    height: 100vh;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    margin: 0;
+    flex-direction: column;
+    padding: 5%;
+    justify-content: center;
+    width: 100%;
   }
-  .github {
-    padding: 5px;
-    height: 80px;
-    width: 80px;
+
+  .homelogo {
+    width: 25%;
+    margin-bottom: 150px;
+    margin-top: 150px;
+    filter: drop-shadow(12px 12px 7px rgba(59, 59, 59, 0.932));
   }
-  .google {
-    padding: 5px;
-    height: 125px;
-    width: 125px;
+
+  .CLIJ h2 {
+    top: 15px !important;
+    left: 10px;
+    color: white;
+    font-family: "Ubuntu Mono", monospace;
+    font-size: 3em;
+    width: 9.25em;
+    text-align: left;
+    overflow: hidden;
+    border-right: 0.15em solid #04bfbf; /* The typwriter cursor */
+    white-space: nowrap;
+    letter-spacing: 0.1em;
+    animation: type 3.5s steps(40, end);
+  }
+
+  .CLIJ h2:nth-child(2) {
+    top: 30px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-animation: type 5s steps(40, end);
+    animation: type2 3.5s steps(40, end);
+    -webkit-animation-delay: 5s;
+    animation-delay: 3.6s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes type {
+    from {
+      width: 0;
+    }
+  }
+
+  @-webkit-keyframes type {
+    from {
+      width: 0;
+    }
+  }
+
+  span {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes type2 {
+    0% {
+      width: 0;
+    }
+    from {
+      opacity: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes type2 {
+    0% {
+      width: 0;
+    }
+    from {
+      opacity: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .log-in-prompt {
+    bottom: 200px;
+    width: 100%;
+    float: right;
+    text-align: right;
+    color: white;
+    font-family: "Ubuntu Mono", monospace;
+    font-size: 2em;
+    overflow: hidden;
+    opacity: 0;
+    border-right: 0.15em solid #04bfbf;
+    white-space: nowrap;
+    letter-spacing: 0.1em;
+    -webkit-animation: type 5s steps(40, end);
+
+    animation: type3 3.5s steps(40, end), blink-caret2 0.5s step-end infinite;
+    animation-delay: 7.5s;
+    -webkit-animation-fill-mode: forwards;
+
+    animation-fill-mode: forwards;
+
+    @keyframes type3 {
+      0% {
+        width: 0;
+      }
+      from {
+        opacity: 0;
+      }
+      1% {
+        opacity: 1;
+      }
+      to {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes type3 {
+      from {
+        width: 0;
+      }
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret2 {
+      from,
+      to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: #04bfbf;
+      }
+    }
+  }
+
+  // ------- right Side Of Page ------ //
+  .right-side {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: rgb(4, 191, 191);
+    background-image: url("../../assets/teal-background3.png");
+    background-size: cover;
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+  }
+  .login {
+    background-color: #04bfbf;
+    background: none;
+    color: white;
+    font-family: "Ubuntu Mono", monospace;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .github {
+      filter: drop-shadow(12px 12px 7px rgba(59, 59, 59, 0.932));
+      margin-top: 20%;
+      padding: 5px;
+      // height: 180px;
+      margin-bottom: 5%;
+      width: 80%;
+    }
+  }
+
+  .github:hover {
+    justify-content: center;
+    filter: drop-shadow(12px 12px 7px (#f755836e));
+    cursor: pointer;
+  }
+
+  h3.login-button {
+    font-family: "Ubuntu Mono", monospace;
+    color: white;
+    text-decoration: none;
+  }
+  h3.login-button:hover {
+    color: #f7558338;
+    text-decoration: none !important;
+  }
+
+  h3.login-button:active {
+    text-decoration: none;
+  }
+
+  .footer {
+    display: none;
   }
 }

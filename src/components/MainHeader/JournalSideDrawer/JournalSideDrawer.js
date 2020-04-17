@@ -48,6 +48,7 @@ const JournalSideDrawer = ({
   useEffect(() => journalFetcher(), []);
 
   const { register, handleSubmit, reset } = useForm()
+  
   const onSubmit = async data => {
     await createJournal(data)
     setActive(data.journal)

@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
 import MainHeader from '../MainHeader'
+import PageFooter from '../Footer'
 import Entries from '../Entries'
 import NewEntry from '../NewEntry'
 import EntryDetails from '../EntryDetails'
@@ -26,6 +27,7 @@ const mapStateToProps = (state) => {
 function App ({ activePage, changePage }) {
   console.log('activePage', activePage, 'all pges: ', Pages)
   return (
+    <>
     <Container className='App'>
       <Login>
         <MainHeader />
@@ -34,6 +36,8 @@ function App ({ activePage, changePage }) {
         {activePage === Pages.ENTRY_DETAILS && <EntryDetails />}
       </Login>
     </Container>
+      <PageFooter />
+      </>
   )
 }
 

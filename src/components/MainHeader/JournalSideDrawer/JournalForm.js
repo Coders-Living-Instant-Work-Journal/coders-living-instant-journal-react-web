@@ -35,6 +35,7 @@ const JournalForm = ({
 }) => {
 
     const { register, handleSubmit, reset } = useForm()
+    
     const [updateJournalInput, setUpdateJournalInput] = useState(false)
 
     const onUpdate = async data => {
