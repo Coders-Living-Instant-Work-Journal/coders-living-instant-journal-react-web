@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
@@ -7,9 +7,11 @@ import MainFooter from '../MainFooter';
 import Entries from '../Entries';
 import NewEntry from '../NewEntry';
 import EntryDetails from '../EntryDetails';
-import Login from '../Login'
+import Login from '../Login';
 //dispatch
 import { changePage } from '../../Actions/pages';
+import { getAllJournals } from '../../Actions';
+import { getEmailProfiles as getAllProfiles } from '../../Actions/emailProfiles';
 
 //styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,14 +20,15 @@ import './App.scss';
 //consts
 import { Pages } from '../../Reducers/activePageReducer';
 
-
 const mapStateToProps = (state) => {
   return {
     activePage: state.activePage,
   };
 };
 
-function App({ activePage, changePage }) {
+function App({ activePage, getAllProfiles, getAllJournals }) {
+  
+
   console.log('activePage', activePage, 'all pges: ', Pages);
   return (
     <Container className="App">
@@ -39,4 +42,4 @@ function App({ activePage, changePage }) {
   );
 }
 
-export default connect(mapStateToProps, { changePage })(App);
+export default connect(mapStateToProps, { changePage, getAllJournals, getAllProfiles })(App);

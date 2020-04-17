@@ -28,11 +28,6 @@ const JournalSideDrawer = ({
     drawerClasses = ['side-drawer', 'open'];
   }
 
-  const journalFetcher = () => {
-    getAllJournals();
-  };
-  // eslint-disable-next-line
-  useEffect(() => journalFetcher(), []);
 
   return (
     <section className={drawerClasses.join(' ')}>
