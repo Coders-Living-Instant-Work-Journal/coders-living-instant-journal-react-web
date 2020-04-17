@@ -85,7 +85,7 @@ async function createEntryApi(entry) {
 }
 // DELETES JOURNAL
 async function deleteJournalApi(journal) {
-  superagent
+  return superagent
     .delete(`${API_SERVER_URI}/deletej`)
     .set('Authorization', token)
     .send({ id: journal._id })

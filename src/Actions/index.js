@@ -157,8 +157,12 @@ function changeDefaultJournalAction(data) {
 export function deleteJournal(journal) {
   console.log('journal', journal)
   return async function (dispatch) {
-    const defaultJournal = await deleteJournalApi(journal)
+
+    const response = await deleteJournalApi(journal)
+    console.log('default journal', response)
+    setActive(response)
     const data = await getJournals()
+    console.log('delete journal data', data)
     return dispatch(getAllJournalsAction(data))
   }
 }
