@@ -5,8 +5,7 @@ import './JournalSideDrawer.scss'
 import { connect } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import JournalForm from './JournalForm'
-import {MdAdd } from 'react-icons/md'
-
+import { MdAdd } from 'react-icons/md'
 
 const mapStateToProps = (state) => {
   return {
@@ -35,18 +34,20 @@ const JournalSideDrawer = ({
 }) => {
   // hooks
   const [newJournalInput, setNewJournalInput] = useState(false)
+  useEffect(() => {
+    getAllJournals()
+  }, [])
 
   let drawerClasses = ['side-drawer']
   if (showJournal) {
     drawerClasses = ['side-drawer', 'open']
   }
 
-
   const { register, handleSubmit, reset } = useForm()
-  
+
   const onSubmit = async data => {
     await createJournal(data)
-    setActive(data.journal)
+    // setActive(data.journal)
     setNewJournalInput(false)
     reset()
   }

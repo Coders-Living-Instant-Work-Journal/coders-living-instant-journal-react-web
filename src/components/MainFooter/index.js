@@ -17,7 +17,7 @@ const mapDispatchToProps = {
 
 const MainFooter = ({ changePage, activePage }) => {
   return (
-    <footer className='footer'>
+    <footer className='navfooter'>
       <Nav className='justify-content-center' activeKey='/home'>
 
         <Nav.Item>

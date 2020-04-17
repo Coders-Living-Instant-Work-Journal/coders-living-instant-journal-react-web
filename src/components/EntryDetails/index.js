@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Row, Col, Container, Button } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
 import { changePage } from '../../Actions/pages.js'
-
+import './EntryDetails.scss'
 
 const mapStateToProps = (state) => {
   return {
@@ -22,7 +22,6 @@ const mapDispatchToProps = {
 
 // pull in entries, and grab the correct entry id
 const EntryDetails = ({ entries, entryId, deleteEntry, changePage }) => {
-
   // const entryFetcher = function () {
   //   getOneEntry(entryId)
   // }
@@ -37,7 +36,7 @@ const EntryDetails = ({ entries, entryId, deleteEntry, changePage }) => {
 
   return (
     <>
-      <Container>
+      <Container className='entry-details'>
         <Row className='entry-headers' key={uuidv4()}>
           <Col key={uuidv4()}>{entry.date}</Col>
           <Col key={uuidv4()}>{entry.category}</Col>

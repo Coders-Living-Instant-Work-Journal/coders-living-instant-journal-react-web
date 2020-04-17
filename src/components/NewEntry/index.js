@@ -25,7 +25,6 @@ const NewEntry = ({ entries, getAllEntries, changePage, createEntry, journals, g
   const { register, handleSubmit, reset } = useForm()
 
   const onSubmit = async (data) => {
-
     await createEntry(data)
     reset()
     changePage('HOME')
@@ -39,7 +38,6 @@ const NewEntry = ({ entries, getAllEntries, changePage, createEntry, journals, g
   // eslint-disable-next-line
   useEffect(() => entriesFetcher(), []);
 
-
   const categories = entries.map(entry => entry.category)
   const uniqueCategories = [...new Set(categories)]
 
@@ -48,7 +46,6 @@ const NewEntry = ({ entries, getAllEntries, changePage, createEntry, journals, g
 
       {/* set entry.journalId = journal._id */}
       <Form className='entry-form' onSubmit={handleSubmit(onSubmit)}>
-
 
         <Form.Group controlId='controlSelect1'>
           <Form.Control as='select' selected onChange={e => setOptionValue(e.target.value)}>
@@ -66,14 +63,14 @@ const NewEntry = ({ entries, getAllEntries, changePage, createEntry, journals, g
           <Form.Text className='text-update'>
           </Form.Text>
         </Form.Group>
-        {/* 
+        {/*
         <Form.Group controlId='controlSelect2'>
           <Form.Control ref={register} as='select' >
             <option>--- Journals ---</option>
             {journals.map((journal) => (
               <>
                 <option key={uuidv4()} value={journal}>{journal.name}</option>
-   
+
               </>
             ))}
           </Form.Control>
