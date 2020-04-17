@@ -10,6 +10,7 @@
     "bootstrap": "^4.4.1",
     "native-base": "^2.13.12",
     "node-sass": "^4.13.1",
+    "query-string": "^6.12.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-confirm-alert": "^2.6.1",
