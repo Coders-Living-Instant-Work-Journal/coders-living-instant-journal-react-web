@@ -1,26 +1,33 @@
 import React from 'react'
 import './MainFooter.scss'
 import { Nav } from 'react-bootstrap'
-import { FaBook } from 'react-icons/fa'
+import { connect } from 'react-redux'
 import { IoIosPaper } from 'react-icons/io'
-// import { Link } from 'react-router-dom'
-import { LinkContainer } from 'react-router-bootstrap'
-const MainFooter = () => {
+import { changePage } from '../../Actions/pages'
+
+const mapStateToProps = (state) => {
+  return {
+    activePage: state.activePage
+  }
+}
+
+const mapDispatchToProps = {
+  changePage
+}
+
+const MainFooter = ({ changePage, activePage }) => {
   return (
     <footer className='footer'>
       <Nav className='justify-content-center' activeKey='/home'>
-        <Nav.Item>
-          <FaBook />
-          <Nav.Link href='/home'>Add Journal</Nav.Link>
-        </Nav.Item>
+
         <Nav.Item>
           <IoIosPaper />
-          <LinkContainer to='/new-entry'>
-            <Nav.Link>Add Entry</Nav.Link>
-          </LinkContainer>
+
+          <Nav.Link onClick={() => { changePage('NEW_ENTRY') }}>Add Entry</Nav.Link>
+
         </Nav.Item>
       </Nav>
     </footer>
   )
 }
-export default MainFooter
+export default connect(mapStateToProps, mapDispatchToProps)(MainFooter)

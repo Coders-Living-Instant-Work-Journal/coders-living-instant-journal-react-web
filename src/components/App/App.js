@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
-
+import EditDetails from '../EditDetails'
 import MainHeader from '../MainHeader'
 import PageFooter from '../Footer'
 import Entries from '../Entries'
@@ -19,10 +19,11 @@ import './App.scss'
 import { Pages } from '../../Reducers/activePageReducer'
 
 const mapStateToProps = (state) => {
-  return {
-    activePage: state.activePage
-  }
+	return {
+		activePage: state.activePage
+	}
 }
+
 
 function App ({ activePage, changePage }) {
   console.log('activePage', activePage, 'all pges: ', Pages)

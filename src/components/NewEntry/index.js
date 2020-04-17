@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { getAllEntries, createEntry } from '../../Actions/index'
 import { connect } from 'react-redux'
 import { useForm } from 'react-hook-form'
+import { changePage } from '../../Actions/pages'
+import { v4 as uuidv4 } from 'uuid'
 import './NewEntry.scss'
 const mapStateToProps = (state) => {
   return {
@@ -11,15 +13,21 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  getAllEntries
+  getAllEntries,
+  changePage,
+  createEntry
 }
 
-const NewEntry = ({ entries, getAllEntries }) => {
+const NewEntry = ({ entries, getAllEntries, changePage, createEntry }) => {
+  const [optionValue, setOptionValue] = useState('')
+
   const { register, handleSubmit, reset } = useForm()
-  let message = ''
+
   const onSubmit = async (data) => {
-    message = await createEntry(data)
+    await createEntry(data)
     reset()
+    changePage('HOME')
+    // console.log('submit data', data)
   }
 
   const entriesFetcher = () => {
@@ -27,27 +35,46 @@ const NewEntry = ({ entries, getAllEntries }) => {
   }
   // eslint-disable-next-line
   useEffect(() => entriesFetcher(), []);
+
+
+  // const handleChange = (e) => {
+  //   let value = e.target.value
+  // }
+
+  const categories = entries.map(entry => entry.category)
+  const uniqueCategories = [...new Set(categories)]
+
   return (
     <>
-      <div className='save-state'>{message}</div>
       <Form className='entry-form' onSubmit={handleSubmit(onSubmit)}>
         <Form.Group controlId='controlSelect1'>
-          <Form.Label>Category</Form.Label>
+          <Form.Control as='select' selected onChange={e => setOptionValue(e.target.value)}>
+            <option>--- Add New Category ---</option>
 
-          <Form.Control as='select' name='category' ref={register}>
-            {entries.map((entry, index) => (
-              <option key={index} value={entry.category}>{entry.category}</option>
+            {uniqueCategories.map((category) => (
+
+              <option key={uuidv4()} value={category}>{category}</option>
             ))}
           </Form.Control>
         </Form.Group>
 
-        <Form.Group controlId='controlTextarea1'>
-          <Form.Label>Entry Text</Form.Label>
+
+        <Form.Group controlId='categoryInput'>
+          <Form.Label>Category</Form.Label>
+          {/* put in logic to show this text if defaultValue equals Add New Category */}
+          <Form.Control type='category' name='category' ref={register} defaultValue={optionValue} />
+          <Form.Text className='text-update'>
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId='textAreaInput'>
+          {/* not passing back as text to create route */}
+
           <Form.Control
             as='textarea'
             rows='3'
             placeholder='Start your entry here...'
-            name='textarea'
+            name='text'
             ref={register}
           />
         </Form.Group>
