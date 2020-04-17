@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { setActive, deleteJournal, updateJournalName } from '../../../Actions'
+import { setActive, deleteJournal, updateJournalName, getAllEntries } from '../../../Actions'
 import { Form } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux'
@@ -12,7 +12,7 @@ import './JournalSideDrawer.scss'
 const mapStateToProps = (state) => {
     return {
         // journals: state.journals,
-        activeJournal: state.activeJournal
+        activeJournalId: state.activeJournal.id
     }
 }
 
@@ -21,26 +21,29 @@ const mapDispatchToProps = {
     setActive,
     // createJournal,
     deleteJournal,
-    updateJournalName
+    updateJournalName,
+    getAllEntries
 }
 
 
 const JournalForm = ({
     // journals,
     journal,
-    activeJournal,
-    // createJournal,
+    activeJournalId,
+    setActive,
     deleteJournal,
-    updateJournalName
+    updateJournalName,
+    getAllEntries
 }) => {
 
     const { register, handleSubmit, reset } = useForm()
     const [updateJournalInput, setUpdateJournalInput] = useState(false)
 
     const onUpdate = async data => {
-        console.log('upate', data)
+
         await updateJournalName(data)
-        setActive(data.journal)
+        //setActive(journal._id)
+
         setUpdateJournalInput(false)
         reset()
     }
@@ -48,36 +51,47 @@ const JournalForm = ({
     return (
         <li
             key={journal._id}
-            onClick={() => {
-                setActive(activeJournal === journal.name ? '' : journal.name)
-            }}
+
+
+
         >
             {!updateJournalInput && (
                 <button onClick={() => setUpdateJournalInput(true)}>
                     <MdEdit className='update-journal-button' />
                 </button>
             )}
-            {updateJournalInput && (
-                <Form className='update-journal-form' onSubmit={handleSubmit(onUpdate)}>
-                    <Form.Control
-                        size='sm'
-                        type='text'
-                        placeholder='New Journal Name Here'
-                        name={journal._id}
-                        className='update-journal-input'
-                        ref={register} />
-                    <button type='submit'>
-                        <MdAdd className='add-journal-button' />
-                    </button>
-                </Form>
-            )}
-            {' '}
-            {journal.name}{' '}
-
-            <button onClick={() => deleteJournal(journal)}><TiDelete
-                className='delete-journal-button'
-            /> </button>
-        </li>
+            {
+                updateJournalInput && (
+                    <Form className='update-journal-form' onSubmit={handleSubmit(onUpdate)}>
+                        <Form.Control
+                            size='sm'
+                            type='text'
+                            placeholder='New Journal Name Here'
+                            name={journal._id}
+                            className='update-journal-input'
+                            ref={register} />
+                        <button type='submit'>
+                            <MdAdd className='add-journal-button' />
+                        </button>
+                    </Form>
+                )
+            }
+            <div className='journal-name' key={journal._id} onClick={async () => {
+                await setActive(journal)
+                await getAllEntries()
+            }}>
+                {' '}
+                {journal.name} {' '}
+            </ div >
+            <button onClick={async () => {
+                await deleteJournal(journal)
+                await getAllEntries()
+            }
+            }>
+                <TiDelete
+                    className='delete-journal-button'
+                /> </button>
+        </li >
     )
 }
 
