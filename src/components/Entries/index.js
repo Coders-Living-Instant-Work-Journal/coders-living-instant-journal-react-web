@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getAllEntries } from '../../Actions/index'
+import { getAllEntries, getAllJournals } from '../../Actions/index'
+import { getEmailProfiles } from '../../Actions/emailProfiles'
 import { Row, Col, Container } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
 import MainFooter from '../MainFooter'
@@ -25,6 +26,8 @@ const mapDispatchToProps = {
 const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails, passEntryId }) => {
   const entryFetcher = function () {
     getAllEntries()
+    getAllJournals();
+    getEmailProfiles();
   }
   // eslint-disable-next-line
   useEffect(() => entryFetcher(), []);

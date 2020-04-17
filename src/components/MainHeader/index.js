@@ -54,8 +54,8 @@ const MainHeader = () => {
           <GoGear className="gear" onClick={settingsDrawerToggle} />
           {settingsDrawerOpen && 
                 <>
-                <Opacity click = {() => setSettingsDrawerOpen(false)} />
                 <SettingsSideDrawer />
+                <Opacity click = {() => setSettingsDrawerOpen(false)} />
                 </>
           }
         </div>

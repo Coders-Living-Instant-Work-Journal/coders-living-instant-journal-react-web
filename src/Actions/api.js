@@ -1,14 +1,9 @@
 import superagent from 'superagent'
 import cookie from 'react-cookies'
 
-const storeToken = () => 'token'
-const token = cookie.load('Auth-Token')
-
-const oauthHandler = () => 'original oauth flow fix later'
-// const jwt = 0;
 // constants
-
-const API_SERVER_URI = 'https://clij.herokuapp.com'
+import { API_SERVER_URI } from '../config/config'
+const token = cookie.load('Auth-Token')
 
 // functions
 // ----- SENDS NEW JOURNAL TO API

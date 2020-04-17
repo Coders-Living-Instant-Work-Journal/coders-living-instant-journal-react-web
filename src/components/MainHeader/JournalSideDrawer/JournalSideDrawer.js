@@ -41,11 +41,6 @@ const JournalSideDrawer = ({
     drawerClasses = ['side-drawer', 'open']
   }
 
-  const journalFetcher = () => {
-    getAllJournals()
-  }
-  // eslint-disable-next-line
-  useEffect(() => journalFetcher(), []);
 
   const { register, handleSubmit, reset } = useForm()
   

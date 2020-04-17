@@ -6,9 +6,11 @@ import login from '../Reducers/loginReducers'
 import entries from '../Reducers/entriesReducers'
 import activePage from '../Reducers/activePageReducer'
 import entryId from '../Reducers/entryIdReducer'
+import emailProfiles from '../Reducers/emailProfileReducer'
 
 const store = configureStore({
   reducer: {
+    emailProfiles,
     activePage,
     journals,
     activeJournal,
