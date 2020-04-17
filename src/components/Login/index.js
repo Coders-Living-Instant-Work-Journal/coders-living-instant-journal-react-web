@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Container, Col, Row } from 'react-bootstrap'
 
 import cookie from 'react-cookies'
 
@@ -62,45 +62,74 @@ const mapDispatchToProps = {
   login: authActions.userLogIn
 }
 
+
 // superagent.post('http://localhost:3000/testroute').set(‘authorization’, `bearer ${token}`);
 
 const Login = ({ loggedIn, login, children }) => {
   const token = cookie.load('Auth-Token')
 
   const LoginPage = (
-    <>
-      <header>
+    <Container fluid>
+      <Row>
+        <Col className="left-side" s={12} md={9}>
+          <div className="CLIJ">
+          <h2>Coders Living </h2>
+          <h2>Instant Journal</h2>
+          </div>
+
+          {/* <h1 className="logo-title">WELCOME</h1> */}
+        {/* <section className="logo"> */}
+          {/* <div>Why CLIJ?</div>
+          <div>About</div> */}
+          <div> 
+          <a href='/'>
+            <img className='homelogo' src={logo} alt='Logo' />
+
+          </a>
+          </div>
+          {/* </section> */}
+          <div className='log-in-prompt'>
+          <p>Please Log In --></p>
+        </div>
+      </Col>
+
+      {/* <header>
         <nav className='homebar'>
           <div>
             <a href='/'>
               <img className='homelogo' src={logo} alt='Logo' />
             </a>
           </div>
-          <div>Why CLIJ?</div>
-          <div>About</div>
+
         </nav>
-      </header>
-      <body>
-        <div className='login'>
-          <Button onClick={login}>skip oauth</Button>
+      </header> */}
+        <Col sm={12} md={3} className='right-side'>
+          <div className='login'>
+          {/* <Button onClick={login}>skip oauth</Button> */}
           <a href={githubLogin()}>
             <img
               className='github'
               src={github}
               alt='github login'
             />
-          </a>
-          <a href={googleLogin()}>
+              <h3 className='login-button'>Log In</h3>
+            </a>
+              
+
+          {/* <a href={googleLogin()}>
             <img
               onClick={login}
               className='google'
               src={google}
               alt='google'
             />
-          </a>
+          </a> */}
         </div>
-      </body>
-    </>
+      </Col>
+
+      </Row>
+      </Container>
+
   )
 
   if (token !== undefined) loggedIn = true
