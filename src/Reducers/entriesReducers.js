@@ -3,7 +3,7 @@ const entriesReducer = (state = [], action) => {
     case 'GET_ALL_ENTRIES':
       return action.payload
     case 'GET_ONE_ENTRY':
-      return action.payload
+      return [action.payload]
     case 'DELETE_ENTRY':
       return state.filter(entry => entry._id !== action.payload)
     case 'UPDATE_ENTRY':
