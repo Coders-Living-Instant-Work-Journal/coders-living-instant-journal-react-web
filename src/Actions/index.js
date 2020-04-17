@@ -10,9 +10,16 @@ import {
   deleteEntryApi
 } from './api'
 
-export const setActive = (name) => ({
+export function setActive(journal) {
+  return async function (dispatch) {
+    await selectJournal(journal)
+    return dispatch(setActiveAction(journal))
+  }
+}
+
+const setActiveAction = (journal) => ({
   type: 'SET_ACTIVE',
-  payload: name
+  payload: journal
 })
 
 // CREATE NEW ENTRY
@@ -34,14 +41,18 @@ function createEntryAction(data) {
 export function getAllEntries() {
   return async function (dispatch) {
     const data = await getEntries()
-    return dispatch(getAllEntriesAction(data))
+    console.log('entries data', data)
+    if (data.body[0] === 'No entries found.') {
+      return dispatch(getAllEntriesAction([]))
+    }
+    return dispatch(getAllEntriesAction(data.body))
   }
 }
 
-function getAllEntriesAction(data) {
+function getAllEntriesAction(entries) {
   return {
     type: 'GET_ALL_ENTRIES',
-    payload: data.body
+    payload: entries
   }
 }
 
@@ -146,8 +157,12 @@ function changeDefaultJournalAction(data) {
 export function deleteJournal(journal) {
   console.log('journal', journal)
   return async function (dispatch) {
-    await deleteJournalApi(journal)
+
+    const response = await deleteJournalApi(journal)
+    console.log('default journal', response)
+    setActive(response)
     const data = await getJournals()
+    console.log('delete journal data', data)
     return dispatch(getAllJournalsAction(data))
   }
 }
