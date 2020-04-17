@@ -19,10 +19,10 @@ import google from '../../assets/google.png'
 const githubLogin = () => {
   const URL = 'https://github.com/login/oauth/authorize'
   const options = {
-    client_id: 'cc007407f284938fff4d',
+    client_id: '4ff7829c02732951c59f',
     redirect_uri: 'https://clij.herokuapp.com/gitHubOAuth',
     scope: '',
-    state: 'thisIsMyState'
+    state: 'SDaNtVYCIqZvrqU3OeG44IDr2KD4LhDA1xhzbz3YuuMZMhVEWcZV29tPKWeEePDYi9hUvVk2'
   }
 
   const queryString = Object.keys(options).map(key => {
@@ -64,12 +64,6 @@ const mapDispatchToProps = {
   login: authActions.userLogIn
 }
 
-<<<<<<< HEAD
-=======
-
-// superagent.post('http://localhost:3000/testroute').set(‘authorization’, `bearer ${token}`);
-
->>>>>>> 90d3b426a1ef52722e2329de365f23c57fdc97e1
 const Login = ({ loggedIn, login, children }) => {
   let token
   const maybeToken = queryString.parse(window.location.search)?.token
