@@ -50,7 +50,6 @@ const EditDetails = ({ entries, entryId, updateEntry, changePage }) => {
   return (
     <>
 
-
       <Form className='edit-details' onSubmit={handleSubmit(onSubmit)}>
 
         <Form.Group className='id-input' controlId='idInput'>
@@ -58,8 +57,6 @@ const EditDetails = ({ entries, entryId, updateEntry, changePage }) => {
           <Form.Text className='text-update'>
           </Form.Text>
         </Form.Group>
-
-
 
         <Form.Group controlId='categoryInput'>
           <Form.Label>Update Category</Form.Label>

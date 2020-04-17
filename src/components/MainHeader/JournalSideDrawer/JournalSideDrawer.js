@@ -47,7 +47,7 @@ const JournalSideDrawer = ({
 
   const onSubmit = async data => {
     await createJournal(data)
-    setActive(data.journal)
+    // setActive(data.journal)
     setNewJournalInput(false)
     reset()
   }

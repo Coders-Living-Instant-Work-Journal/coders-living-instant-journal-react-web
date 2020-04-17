@@ -8,7 +8,7 @@ const CreateProfile = ({ create, viewChange, views, journals, currentDetail, pro
   const initialState = currentDetail ? { defaultValues: currentDetail } : undefined
   console.log('the defaults on component render: ', initialState)
 
-  const { register, handleSubmit, reset } = useForm(/*initialState */)
+  const { register, handleSubmit, reset } = useForm(/* initialState */)
   const [frequency, setFrequency] = useState()
 
   const freqOptions = ['daily', 'weekly', 'bi-weekly', 'monthly']
@@ -27,9 +27,9 @@ const CreateProfile = ({ create, viewChange, views, journals, currentDetail, pro
     //   console.log(er)
     // } finally {
     viewChange(views.EMAIL)
-      reset() 
+    reset()
     // }
-  };
+  }
 
   const Hours = {
     '12 AM': 0,
@@ -160,7 +160,7 @@ const CreateProfile = ({ create, viewChange, views, journals, currentDetail, pro
       <button type='submit'>Submit</button>
     </Form>
   )
-};
+}
 
 const mapStateToProps = (state) => {
   return { profiles: state.emailProfiles }

@@ -10,18 +10,17 @@ import Entries from '../Entries'
 import NewEntry from '../NewEntry'
 import EntryDetails from '../EntryDetails'
 import Login from '../Login'
-//dispatch
+// dispatch
 import { changePage } from '../../Actions/pages'
 import { getAllJournals } from '../../Actions'
 import { getEmailProfiles as getAllProfiles } from '../../Actions/emailProfiles'
 
-//styles
+// styles
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss'
 
 // styles
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 
 // consts
 import { Pages } from '../../Reducers/activePageReducer'
