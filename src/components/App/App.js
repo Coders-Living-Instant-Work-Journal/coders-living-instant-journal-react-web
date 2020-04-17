@@ -1,15 +1,23 @@
-import React from 'react'
-import { Container } from 'react-bootstrap'
-import { connect } from 'react-redux'
-import EditDetails from '../EditDetails'
-import MainHeader from '../MainHeader'
+import React, { useEffect } from 'react';
+import { Container } from 'react-bootstrap';
+import { connect } from 'react-redux';
+
 import PageFooter from '../Footer'
-import Entries from '../Entries'
-import NewEntry from '../NewEntry'
-import EntryDetails from '../EntryDetails'
-import Login from '../Login'
-// dispatch
-import { changePage } from '../../Actions/pages'
+import EditDetails from '../EditDetails'
+import MainHeader from '../MainHeader';
+import MainFooter from '../MainFooter';
+import Entries from '../Entries';
+import NewEntry from '../NewEntry';
+import EntryDetails from '../EntryDetails';
+import Login from '../Login';
+//dispatch
+import { changePage } from '../../Actions/pages';
+import { getAllJournals } from '../../Actions';
+import { getEmailProfiles as getAllProfiles } from '../../Actions/emailProfiles';
+
+//styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
 
 // styles
 import 'bootstrap/dist/css/bootstrap.min.css'

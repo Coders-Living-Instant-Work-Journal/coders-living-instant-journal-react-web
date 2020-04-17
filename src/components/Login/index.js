@@ -2,6 +2,8 @@ import { connect } from 'react-redux'
 import React from 'react'
 import { Button, Container, Col, Row } from 'react-bootstrap'
 
+import {githubOptions, googleOptions, githubUrl, googleUrl} from '../../config/config'
+
 import cookie from 'react-cookies'
 
 import * as authActions from '../../Actions/auth'
@@ -17,13 +19,8 @@ import google from '../../assets/google.png'
 // import { Link } from 'react-bootstrap/lib/Navbar';
 
 const githubLogin = () => {
-  const URL = 'https://github.com/login/oauth/authorize'
-  const options = {
-    client_id: '4ff7829c02732951c59f',
-    redirect_uri: 'https://clij.herokuapp.com/gitHubOAuth',
-    scope: '',
-    state: 'SDaNtVYCIqZvrqU3OeG44IDr2KD4LhDA1xhzbz3YuuMZMhVEWcZV29tPKWeEePDYi9hUvVk2'
-  }
+  const URL = githubUrl
+  const options = githubOptions
 
   const queryString = Object.keys(options).map(key => {
     return `${key}=${encodeURIComponent(options[key])}`
@@ -33,18 +30,9 @@ const githubLogin = () => {
   return authURL
 }
 
-const TOKEN_SERVER_URL = 'https://oauth2.googleapis.com/token'
-const CLIENT_ID = '658078245679-9challjqn1drnapsmb4q2n27amg1u5sm.apps.googleusercontent.com'
-const API_SERVER = 'https://clij.herokuapp.com/oauth'
-
 const googleLogin = () => {
-  const URL = TOKEN_SERVER_URL
-  const options = {
-    client_id: CLIENT_ID,
-    redirect_uri: API_SERVER,
-    // code: code,
-    grant_type: 'authorization_code'
-  }
+  const URL = googleUrl
+  const options = googleOptions
 
   const queryString = Object.keys(options).map(key => {
     return `${key}=${encodeURIComponent(options[key])}`
