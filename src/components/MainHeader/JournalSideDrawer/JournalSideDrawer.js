@@ -55,7 +55,7 @@ const JournalSideDrawer = ({
   return (
     <section className={drawerClasses.join(' ')}>
       <ul>
-        <h2>Journals</h2>
+        <h2 className="journal-menu-header">Journals</h2>
         {!newJournalInput && (
           <MdAdd
             className='new-journal-button'

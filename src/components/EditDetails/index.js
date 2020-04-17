@@ -73,6 +73,7 @@ const EditDetails = ({ entries, entryId, updateEntry, changePage }) => {
             defaultValue={entry.text}
             name='text'
             ref={register}
+            className="editDetailInput"
           />
         </Form.Group>
         <Button variant='primary' type='submit'>

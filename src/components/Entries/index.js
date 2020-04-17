@@ -35,7 +35,7 @@ const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails,
   return (
     <>
       <h1 className='title'>Journal Entries</h1>
-
+      <MainFooter />
       <Container>
         {entries[0] === 'No entries found.' ? "You don't have any entries for this journal." : entries.map((entry) => (
           <>
@@ -49,7 +49,7 @@ const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails,
               }}
             >
               <Row className='entry-headers' key={uuidv4()}>
-                <Col key={uuidv4()}>{entry.date}</Col>
+                {/* <Col key={uuidv4()}>{entry.date}</Col> */}
                 <Col key={uuidv4()}>{entry.category}</Col>
               </Row>
               <Row key={uuidv4()}>
@@ -59,7 +59,6 @@ const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails,
           </>
         ))}
       </Container>
-      <MainFooter />
     </>
   )
 }

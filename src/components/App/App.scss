@@ -1,6 +1,21 @@
+body {
+        background: radial-gradient(
+      circle,
+      rgba(116, 93, 140, 1) 14%,
+      rgba(45, 2, 89, 0.986) 71%,
+      rgba(4, 0, 8, 1) 99%
+    );
+    display: flex;
+    justify-content: center;
+}
+
 .App {
   text-align: center;
   // margin-top: 150px;
+  background-color: white;
+  height: 600px;
+  margin: 20px 20px 20px 20px !important;
+
 }
 
 .App-logo {

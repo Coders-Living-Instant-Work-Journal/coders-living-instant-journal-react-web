@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux'
 import { TiDelete } from 'react-icons/ti'
 import { MdEdit, MdAdd } from 'react-icons/md'
+import { FaEdit} from 'react-icons/fa'
 import './JournalSideDrawer.scss'
 
 const mapStateToProps = (state) => {
@@ -50,8 +51,8 @@ const JournalForm = ({
 
     >
       {!updateJournalInput && (
-        <button onClick={() => setUpdateJournalInput(true)}>
-          <MdEdit className='update-journal-button' />
+        <button className="journal-button-container" onClick={() => setUpdateJournalInput(true)}>
+          <FaEdit className='update-journal-button' />
         </button>
       )}
       {
@@ -80,7 +81,7 @@ const JournalForm = ({
         {' '}
         {journal.name} {' '}
       </div>
-      <button onClick={async () => {
+      <button className="journal-button-container" onClick={async () => {
         await deleteJournal(journal)
         await getAllEntries()
       }}

@@ -38,12 +38,14 @@ const EntryDetails = ({ entries, entryId, deleteEntry, changePage }) => {
     <>
       <Container className='entry-details'>
         <Row className='entry-headers' key={uuidv4()}>
+          <Col className="entry-category" key={uuidv4()}>{entry.category}</Col>
+          <Button className="entry-delete-button" onClick={() => deleteEntry(entry._id)} variant='danger'>X</Button>
+        </Row>
+        <Row className="entry-time">
           <Col key={uuidv4()}>{entry.date}</Col>
-          <Col key={uuidv4()}>{entry.category}</Col>
-          <Button onClick={() => deleteEntry(entry._id)} variant='danger'>X</Button>
         </Row>
         <Row key={uuidv4()}>
-          <Col className='entry-text' key={uuidv4()}>{entry.text}</Col>
+          <Col className='entryDetail-text' key={uuidv4()}>{entry.text}</Col>
         </Row>
       </Container>
 

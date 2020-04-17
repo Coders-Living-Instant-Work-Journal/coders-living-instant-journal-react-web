@@ -1,3 +1,25 @@
 .entry-details {
   margin-top: 150px;
 }
+
+.entryDetail-text {
+  margin-top: 10px;
+  font-size: 1em ;
+  overflow: scroll;
+  height: 400px;
+  text-align: left;
+}
+
+.entry-time {
+  font-size: 12px;
+  color: black;
+}
+
+.entry-category {
+  font-size: 2em;
+}
+
+.entry-delete-button {
+  height: 40px;
+  margin-top: 10px;
+}
