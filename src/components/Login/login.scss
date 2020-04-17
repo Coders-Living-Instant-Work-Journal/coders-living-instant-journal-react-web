@@ -131,6 +131,8 @@
 
   .homelogo {
     width: 25%;
+    min-width: 200px;
+    max-width: 300px;
     margin-bottom: 150px;
     margin-top: 150px;
     filter: drop-shadow(12px 12px 7px rgba(59, 59, 59, 0.932));
@@ -148,7 +150,7 @@
     border-right: 0.15em solid #04bfbf; /* The typwriter cursor */
     white-space: nowrap;
     letter-spacing: 0.1em;
-    animation: type 3.5s steps(40, end);
+    animation: type 2s steps(20, end);
   }
 
   .CLIJ h2:nth-child(2) {
@@ -156,10 +158,10 @@
     white-space: nowrap;
     overflow: hidden;
     opacity: 0;
-    -webkit-animation: type 5s steps(40, end);
-    animation: type2 3.5s steps(40, end);
-    -webkit-animation-delay: 5s;
-    animation-delay: 3.6s;
+    -webkit-animation: type 2s steps(20, end);
+    animation: type2 2s steps(20, end);
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
   }
@@ -233,10 +235,10 @@
     border-right: 0.15em solid #04bfbf;
     white-space: nowrap;
     letter-spacing: 0.1em;
-    -webkit-animation: type 5s steps(40, end);
+    -webkit-animation: type3 2s steps(20, end);
 
-    animation: type3 3.5s steps(40, end), blink-caret2 0.5s step-end infinite;
-    animation-delay: 7.5s;
+    animation: type3 2s steps(20, end), blink-caret2 0.5s step-end infinite;
+    animation-delay: 4.15s;
     -webkit-animation-fill-mode: forwards;
 
     animation-fill-mode: forwards;
