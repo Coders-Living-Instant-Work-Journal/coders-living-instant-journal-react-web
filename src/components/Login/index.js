@@ -127,7 +127,7 @@ const Login = ({ loggedIn, login, children }) => {
 
   )
 
-  if (token !== undefined) loggedIn = true
+  if (token !== undefined) login()
 
   if (loggedIn) {
     return children
