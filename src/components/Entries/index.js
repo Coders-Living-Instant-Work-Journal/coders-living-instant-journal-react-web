@@ -26,8 +26,8 @@ const mapDispatchToProps = {
 const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails, passEntryId }) => {
   const entryFetcher = function () {
     getAllEntries()
-    getAllJournals();
-    getEmailProfiles();
+    getAllJournals()
+    getEmailProfiles()
   }
   // eslint-disable-next-line
   useEffect(() => entryFetcher(), []);
@@ -37,7 +37,7 @@ const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails,
       <h1 className='title'>Journal Entries</h1>
 
       <Container>
-        {entries[0] === "No entries found." ? "You don't have any entries for this journal." : entries.map((entry) => (
+        {entries[0] === 'No entries found.' ? "You don't have any entries for this journal." : entries.map((entry) => (
           <>
 
             <div
@@ -46,7 +46,8 @@ const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails,
                 changePage('ENTRY_DETAILS')
                 passEntryId(entry._id)
                 // console.log('entry id', entry._id)
-              }}>
+              }}
+            >
               <Row className='entry-headers' key={uuidv4()}>
                 <Col key={uuidv4()}>{entry.date}</Col>
                 <Col key={uuidv4()}>{entry.category}</Col>
