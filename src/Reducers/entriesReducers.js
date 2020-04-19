@@ -7,7 +7,6 @@ const entriesReducer = (state = [], action) => {
     case 'DELETE_ENTRY':
       return state.filter(entry => entry._id !== action.payload)
     case 'UPDATE_ENTRY':
-      console.log('update entry payload', action.payload)
       return [...state, action.payload]
     default:
       return state

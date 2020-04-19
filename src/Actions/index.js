@@ -10,7 +10,7 @@ import {
   deleteEntryApi
 } from './api'
 
-export function setActive (journal) {
+export function setActive(journal) {
   return async function (dispatch) {
     await selectJournal(journal)
     return dispatch(setActiveAction(journal))
@@ -23,14 +23,14 @@ const setActiveAction = (journal) => ({
 })
 
 // CREATE NEW ENTRY
-export function createEntry (entry) {
+export function createEntry(entry) {
   return async function (dispatch) {
     const data = await createEntryApi(entry)
     return dispatch(createEntryAction(data))
   }
 }
 
-function createEntryAction (data) {
+function createEntryAction(data) {
   return {
     type: 'CREATE_ENTRY',
     payload: data.body
@@ -38,10 +38,9 @@ function createEntryAction (data) {
 }
 
 // GET ALL ENTRIES
-export function getAllEntries () {
+export function getAllEntries() {
   return async function (dispatch) {
     const data = await getEntries()
-    console.log('entries data', data)
     if (data.body[0] === 'No entries found.') {
       return dispatch(getAllEntriesAction([]))
     }
@@ -49,7 +48,7 @@ export function getAllEntries () {
   }
 }
 
-function getAllEntriesAction (entries) {
+function getAllEntriesAction(entries) {
   return {
     type: 'GET_ALL_ENTRIES',
     payload: entries
@@ -57,15 +56,14 @@ function getAllEntriesAction (entries) {
 }
 
 // GET ONE ENTRY
-export function getOneEntry (id) {
+export function getOneEntry(id) {
   return async function (dispatch) {
-    console.log('one entry id', id)
     const data = await getEntries(id)
     return dispatch(getOneEntryAction(data))
   }
 }
 
-function getOneEntryAction (data) {
+function getOneEntryAction(data) {
   return {
     type: 'GET_ONE_ENTRY',
     payload: data.body
@@ -73,14 +71,14 @@ function getOneEntryAction (data) {
 }
 
 // UPDATES AN ENTRY
-export function updateEntry (entry) {
+export function updateEntry(entry) {
   return async function (dispatch) {
     const data = await putApi(entry)
     return dispatch(updateEntryAction(data))
   }
 }
 
-function updateEntryAction (data) {
+function updateEntryAction(data) {
   return {
     type: 'UPDATE_ENTRY',
     payload: data.body
@@ -88,14 +86,14 @@ function updateEntryAction (data) {
 }
 
 // DELETES AN ENTRY
-export function deleteEntry (id) {
+export function deleteEntry(id) {
   return async function (dispatch) {
     await deleteEntryApi(id)
     return dispatch(deleteEntryAction(id))
   }
 }
 
-function deleteEntryAction (id) {
+function deleteEntryAction(id) {
   return {
     type: 'DELETE_ENTRY',
     payload: id
@@ -103,7 +101,7 @@ function deleteEntryAction (id) {
 }
 
 // CREATE A NEW JOURNAL
-export function createJournal (journal) {
+export function createJournal(journal) {
   return async function (dispatch) {
     await saveJournalApi(journal.journal)
     const data = await getJournals()
@@ -112,14 +110,14 @@ export function createJournal (journal) {
 }
 
 // GETS ALL JOURNALS
-export function getAllJournals () {
+export function getAllJournals() {
   return async function (dispatch) {
     const data = await getJournals()
     return dispatch(getAllJournalsAction(data))
   }
 }
 
-function getAllJournalsAction (data) {
+function getAllJournalsAction(data) {
   return {
     type: 'GET_ALL_JOURNALS',
     payload: data.body
@@ -127,8 +125,7 @@ function getAllJournalsAction (data) {
 }
 
 // CHANGE JOURNAL NAME
-export function updateJournalName (journal) {
-  console.log({ id: Object.keys(journal)[0], name: Object.values(journal)[0] })
+export function updateJournalName(journal) {
   return async function (dispatch) {
     await updateJournalApi({ id: Object.keys(journal)[0], name: Object.values(journal)[0] })
     const data = await getJournals()
@@ -137,14 +134,14 @@ export function updateJournalName (journal) {
 }
 
 // CHANGE DEFAULT JOURNAL
-export function changeDefaultJournal (journal) {
+export function changeDefaultJournal(journal) {
   return async function (dispatch) {
     const data = await selectJournal(journal)
     return dispatch(changeDefaultJournalAction(data))
   }
 }
 
-function changeDefaultJournalAction (data) {
+function changeDefaultJournalAction(data) {
   return {
     type: 'CHANGE_DEFAULT_JOURNAL',
     payload: data.body
@@ -152,14 +149,11 @@ function changeDefaultJournalAction (data) {
 }
 
 // DELETE JOURNAL
-export function deleteJournal (journal) {
-  console.log('journal', journal)
+export function deleteJournal(journal) {
   return async function (dispatch) {
     const response = await deleteJournalApi(journal)
-    console.log('default journal', response)
     setActive(response)
     const data = await getJournals()
-    console.log('delete journal data', data)
     return dispatch(getAllJournalsAction(data))
   }
 }

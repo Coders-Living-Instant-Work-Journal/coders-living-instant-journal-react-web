@@ -1,77 +1,95 @@
-# Coders Living Instant Journal - React Web App
-**Version** 1.0.1
+# Coder's Living Instant Journal Web App
 
-## Overview
-- Web app version. Designed mobile first.
-- Dev: clone, `npm i`, `npm start`
+### We are deployed at
+https://cli-journal.web.app/
 
-***
+### What is the Coder's Living Instant Journal Web App?
+A web app that interacts with the Coder's Living Instant Journal API. The web app provides an easy to use interface that allows you to create, read, update, and delete both journals and entries.  A user has the ability within the app to create e-mail profiles specifying in detail what journals they would like to receive e-mails from and the frequency they would like to receive them.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Tool Used
+* React
+* Redux
+* Bootstrap
+* React Icons
+* Sass
+* React Hook Form
+* Query String
+* Redux Thunk
+* Superagent
+* Uuid
+* React-cookies
+* VSCode
 
-In the project directory, you can run:
+### Getting Started
+Clone this repository to your local machine.
 
-### `yarn start`
+```
+git clone https://github.com/Coders-Living-Instant-Work-Journal/coders-living-instant-journal-react-web.git
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In your terminal
+```
+$ yarn install
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Usage
 
-### `yarn build`
+#### Login page with Github
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Login](assets/login.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Main Page after Login
+![Main](assets/after-login.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Journals Menu without any journals added. Option to add a new journal.
+![Journals-Menu](assets/journal-menu.png)
 
-### `yarn eject`
+#### Text-box appears after clicking add journal button. 
+![Journals-Menu](assets/add-journal.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Journals Menu with Journals Added.  Options to edit and delete each journal.
+![Journals-Added](assets/journals-added.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Form appears after clicking Add Entry button
+![Add-entry](assets/add-entry.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Upon submitting the entry form, entries will appear on the main page.
+![Entries-added](assets/entries-added.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Each entry can be clicked, providing a more detailed view with options for edit/delete.
+![Add-entry](assets/entry-details.png)
 
-## Learn More
+#### Upon clicking edit entry, a form is provided allowing the user to update category and text details.
+![Add-entry](assets/edit-entry.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Settings Menu has options for setting up e-mail profiles and logout
+![Add-entry](assets/settings-menu.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Clicking e-mail profiles opens up option to create a new profile
+![Add-entry](assets/add-email-profile.png)
 
-### Code Splitting
+#### Upon clicking Add New, the user will be provided with a form to fill out
+![Add-entry](assets/email-profile-form.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### The user can fill out the form with the options they desire
+![Add-entry](assets/create-email-profile.png)
 
-### Analyzing the Bundle Size
+#### Upon submission, the user will now see the e-mail profile they created in their e-mail settings
+![Add-entry](assets/email-profile-created.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+### Authors
+ Eugene Monnier, Andrew Kyllo, Peter Cole, Susanna Lakey, Cait Rowland, Tyler Sayvetz, Kevin Dreyer
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Resources
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+[Github Projects Page for CLIJ Web App](https://github.com/Coders-Living-Instant-Work-Journal/coders-living-instant-journal-react-web/projects/1)
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+

@@ -36,7 +36,6 @@ function UEPDispatch(data) {
 export function getEmailProfiles() {
   return async function (dispatch) {
     const response = await superagent.get(`${API_SERVER_URI}/readEmailProfiles`).set('Authorization', `bearer ${token()}`)
-    console.log(response, 'response.body')
     dispatch(GEPDispatch(response.body))
   }
 }

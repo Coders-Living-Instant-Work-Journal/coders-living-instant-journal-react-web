@@ -31,8 +31,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-function App ({ activePage, changePage }) {
-  console.log('activePage', activePage, 'all pges: ', Pages)
+function App({ activePage, changePage }) {
   return (
     <>
       <Container className='App'>
@@ -43,7 +42,7 @@ function App ({ activePage, changePage }) {
           {activePage === Pages.ENTRY_DETAILS && <EntryDetails />}
           {activePage === Pages.EDIT_DETAILS && <EditDetails />}
         </Login>
-      <PageFooter />
+        <PageFooter />
       </Container>
     </>
   )

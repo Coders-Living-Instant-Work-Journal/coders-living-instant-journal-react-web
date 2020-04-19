@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form'
 
 const CreateProfile = ({ create, viewChange, views, journals, currentDetail, profiles, update }) => {
   const initialState = currentDetail ? { defaultValues: currentDetail } : undefined
-  console.log('the defaults on component render: ', initialState)
 
   const { register, handleSubmit, reset } = useForm(/* initialState */)
   const [frequency, setFrequency] = useState()
@@ -14,7 +13,6 @@ const CreateProfile = ({ create, viewChange, views, journals, currentDetail, pro
   const freqOptions = ['daily', 'weekly', 'bi-weekly', 'monthly']
 
   const createHandler = (data) => {
-    console.log(data)
     create(constructProfileObj(data))
     // try {
 
@@ -58,7 +56,7 @@ const CreateProfile = ({ create, viewChange, views, journals, currentDetail, pro
     '11 PM': 23
   }
 
-  function constructProfileObj (data) {
+  function constructProfileObj(data) {
     const frequencyOptions = {
       weekly: {
         biWeekly: false,
@@ -95,8 +93,6 @@ const CreateProfile = ({ create, viewChange, views, journals, currentDetail, pro
       ...frequencyOptions[data.frequency],
       emailTime: `${data.hour}:${data.minute}`
     }
-
-    console.log('final object', returnObj)
     return returnObj
   }
 
