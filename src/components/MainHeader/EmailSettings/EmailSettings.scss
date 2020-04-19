@@ -1,9 +1,22 @@
 .listContainer {
   position: relative;
-  min-height: 20px;
+  background-color: #2e0259;
+  border: none;
+}
+
+.emailProfileList {
+      min-height: 0px;
   max-height: 500px;
-  overflow: scroll;
-  margin: 10px;
-  background-color: #745D8C;
-  
+}
+
+.deleteProfileButton {
+    color: #F75584;
+    height: 25px;
+  width: 25px;
+  background-color: #2e0259 ;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  font-size: 20;
+
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { TiDelete } from 'react-icons/ti'
+
 
 // styles
 import './EmailSettings.scss'
@@ -23,11 +25,11 @@ const EmailSettings = ({ profiles, create, views, viewChange, setCurrentDetail, 
     <div className='emailSettings'>
       <button onClick={() => viewChange(views.CREATE)}>Add New</button>
       <div className='listContainer'>
-        <ul>
+        <ul className="emailProfileList">
           {profiles.map((profile, i) => (
             <li>
               <EmailProfListItem profile={profile} key={i} onClick={() => clickHandler(profile)} />
-              <button onClick={() => del(profile._id)} />
+              <button className="deleteProfileButton" onClick={() => del(profile._id)}><TiDelete/></button>
             </li>
           ))}
         </ul>

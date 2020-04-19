@@ -13,15 +13,6 @@
     justify-content: center;
   }
 
-  // .right-side {
-  //   margin-bottom: 50px;
-  // }
-
-  // .left-side Col {
-  //   max-width: 767;
-
-  // }
-
   .login-button {
     font-family: "Ubuntu Mono", monospace;
     color: #04bfbf;
@@ -31,9 +22,7 @@
     text-decoration: none;
   }
   .homelogo {
-    // display: flex;
     width: 40%;
-    // justify-content: center;
   }
 
   .github {
@@ -71,18 +60,6 @@
     border-right: 0.15em solid #04bfbf;
     animation: blink-caret2 0.5s step-end infinite;
   }
-
-  // @keyframes typing {
-  //   from {
-  //     width: 0;
-  //   }
-  // }
-
-  // @-webkit-keyframes typing {
-  //   from {
-  //     width: 0;
-  //   }
-  // }
 
   @keyframes blink-caret2 {
     from,

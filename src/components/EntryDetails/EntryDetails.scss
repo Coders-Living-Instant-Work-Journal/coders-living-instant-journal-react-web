@@ -1,12 +1,16 @@
 .entry-details {
   margin-top: 150px;
+  background-color: white;
+  height: 500px;
+  width: 400px;
+  padding: 10px;
 }
 
 .entryDetail-text {
   margin-top: 10px;
-  font-size: 1em ;
-  overflow: scroll;
-  height: 400px;
+  font-size: 1em;
+  overflow: hidden;
+  height: 320px;
   text-align: left;
 }
 
@@ -21,5 +25,6 @@
 
 .entry-delete-button {
   height: 40px;
-  margin-top: 10px;
+  width: 40px;
+  margin-right: 10px;
 }

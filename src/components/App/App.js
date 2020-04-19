@@ -43,8 +43,8 @@ function App ({ activePage, changePage }) {
           {activePage === Pages.ENTRY_DETAILS && <EntryDetails />}
           {activePage === Pages.EDIT_DETAILS && <EditDetails />}
         </Login>
-      </Container>
       <PageFooter />
+      </Container>
     </>
   )
 }

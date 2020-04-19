@@ -48,9 +48,9 @@ const EntryDetails = ({ entries, entryId, deleteEntry, changePage }) => {
           <Col className='entryDetail-text' key={uuidv4()}>{entry.text}</Col>
         </Row>
       </Container>
-
       <Button onClick={() => { changePage('EDIT_DETAILS') }}>Edit Entry</Button>
     </>
+
   )
 }
 

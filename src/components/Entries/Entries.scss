@@ -1,9 +1,3 @@
-body {
-  height: 600px;
-  // margin: 20px 20px 20px 20px !important;
-  width: 100%;
-}
-
 $pink: #f75584;
 body {
   background-color: white !important;
@@ -28,4 +22,9 @@ body {
 .entry-text {
   color: #2e0259;
   font-size: 1.5em;
+}
+
+.entry-container {
+  background-color: white;;
+  height: 500px;
 }

@@ -39,6 +39,7 @@ const SettingsDrawer = ({ journals, showSettings }) => {
       {currentView === Menus.MAIN && ( // main settings menu
         <ul>
           <li><a href='#' onClick={() => currentViewHandler(Menus.EMAIL)}>Email Settings</a></li>
+          <li className="spacer"/>
           <li className="log-out-button"> <a href='/' onClick={onLogOut}>Log Out</a></li>
         </ul>
       )}
