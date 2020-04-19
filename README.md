@@ -1,5 +1,7 @@
 # Coder's Living Instant Journal Web App
 
+LIJ is a secure, cloud-based note-taking app focussed on rapid access and distribution, allowing you to save your notes and thoughts without interrupting your flow. Easily create, retrieve, and update your notes directly from the command line and share them instantly with yourself or others. Set up highly customizable digest schedules to receive running reports of your notes through the use of CLIJ's rich web GUI. Technologies used include React/Redux, Node, Express, Oauth, MongoDB, and JSON Web Tokens, and the project is hosted on Firebase and Heroku. The terminal client is available for download on NPM.
+
 ### We are deployed at
 https://cli-journal.web.app/
 
