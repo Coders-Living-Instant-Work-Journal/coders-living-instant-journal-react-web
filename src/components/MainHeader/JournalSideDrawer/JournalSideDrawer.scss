@@ -1,0 +1,120 @@
+.side-drawer {
+  height: 100%;
+  background: #2e0259;
+  box-shadow: 1px 0px 7px rgb(51, 51, 51);
+  position: fixed;
+  top: 7rem;
+  left: 0;
+  width: 70%;
+  max-width: 400px;
+  z-index: 200;
+}
+
+.side-drawer.open {
+  transform: translateX(0);
+}
+
+.side-drawer ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  color: white;
+  // margin: 0.5rem 0;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.side-drawer a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.side-drawer a:hover,
+.side-drawer a:active {
+  color: purple;
+}
+
+.journal-menu-header {
+  color: #f9a69a;
+  font-weight: bold;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 3em;
+}
+
+.add-journal-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.new-journal-button,
+.add-journal-button {
+  color: pink;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.new-journal-button {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;;
+}
+.new-journal-button,
+.add-journal-button:hover {
+  background-color: #04bfbf;
+  border-radius: 5px;
+  color: #2e0259;
+}
+
+.add-journal-button {
+  height: 25px;
+  width: 25px;
+}
+
+.new-journal-input {
+  width: 70% !important;
+  justify-content: center;
+}
+
+.update-journal-button {
+  color: #04bfbf;
+  background-color: none !important;
+  border: none;
+    height: 25px;
+  width: 25px;
+}
+
+.journal-name {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+.delete-journal-button {
+  color: #F75584;
+    height: 25px;
+  width: 25px;
+  background-color: #2e0259 ;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  font-size: 20;
+}
+
+.update-journal-form {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.journal-button-container {
+  background: none;
+  border: none;
+}
+// }

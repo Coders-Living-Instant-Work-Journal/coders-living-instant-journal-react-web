@@ -1,18 +1,23 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import thunk from 'redux-thunk'
+import { configureStore } from '@reduxjs/toolkit'
 
-import journalReducer from '../Reducers/journalReducers'
-import activeJournalReducer from '../Reducers/activeJournalReducers';
+import journals from '../Reducers/journalReducers'
+import activeJournal from '../Reducers/activeJournalReducers'
+import login from '../Reducers/loginReducers'
+import entries from '../Reducers/entriesReducers'
+import activePage from '../Reducers/activePageReducer'
+import entryId from '../Reducers/entryIdReducer'
+import emailProfiles from '../Reducers/emailProfileReducer'
 
-const reducers = combineReducers({
-    journals: journalReducer,
-    activeJournal: activeJournalReducer
+const store = configureStore({
+  reducer: {
+    emailProfiles,
+    activePage,
+    journals,
+    activeJournal,
+    login,
+    entries,
+    entryId
+  }
 })
 
-const store = () => {
-    return createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))
-}
-
-
-export default store()
+export default store

@@ -1,45 +1,33 @@
-import React from "react";
-import {
-    Footer,
-    FooterTab,
-    Button,
-    Icon,
-    Text,
-    StyleProvider,
-    Content,
-} from "native-base";
+import React from 'react'
+import './MainFooter.scss'
+import { Nav } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { IoIosPaper } from 'react-icons/io'
+import { changePage } from '../../Actions/pages'
 
-import getTheme from "../../../native-base-theme/components";
-import material from "../../../native-base-theme/variables/material";
+const mapStateToProps = (state) => {
+  return {
+    activePage: state.activePage
+  }
+}
 
-const MainFooter = () => {
-    return (
-        <>
-            <Content />
-            <StyleProvider style={getTheme(material)}>
-                <Footer>
-                    <FooterTab>
-                        <Button vertical>
-                            <Icon
-                                ios="ios-journal"
-                                android="md-journal"
-                                style={{ color: "#F9A69A" }}
-                            />
-                            <Text>Add Journal</Text>
-                        </Button>
-                        <Button vertical>
-                            <Icon
-                                ios="ios-paper"
-                                android="md-document"
-                                style={{ color: "#F9A69A" }}
-                            />
-                            <Text>Add Entry</Text>
-                        </Button>
-                    </FooterTab>
-                </Footer>
-            </StyleProvider>
-        </>
-    );
-};
+const mapDispatchToProps = {
+  changePage
+}
 
-export default MainFooter;
+const MainFooter = ({ changePage, activePage }) => {
+  return (
+    <footer className='navfooter'>
+      <Nav className='justify-content-center' activeKey='/home'>
+
+        <Nav.Item>
+          <IoIosPaper />
+
+          <Nav.Link onClick={() => { changePage('NEW_ENTRY') }}>Add Entry</Nav.Link>
+
+        </Nav.Item>
+      </Nav>
+    </footer>
+  )
+}
+export default connect(mapStateToProps, mapDispatchToProps)(MainFooter)

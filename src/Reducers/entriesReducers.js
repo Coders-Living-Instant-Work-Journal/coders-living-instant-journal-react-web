@@ -1,0 +1,17 @@
+const entriesReducer = (state = [], action) => {
+  switch (action.type) {
+    case 'GET_ALL_ENTRIES':
+      return action.payload
+    case 'GET_ONE_ENTRY':
+      return [action.payload]
+    case 'DELETE_ENTRY':
+      return state.filter(entry => entry._id !== action.payload)
+    case 'UPDATE_ENTRY':
+      console.log('update entry payload', action.payload)
+      return [...state, action.payload]
+    default:
+      return state
+  }
+}
+
+export default entriesReducer

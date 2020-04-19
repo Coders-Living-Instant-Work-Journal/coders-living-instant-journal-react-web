@@ -1,70 +1,52 @@
-import React, {Component} from "react";
-import { Container } from 'react-bootstrap';
-import SideDrawer from '../SideDrawer/SideDrawer'
-import Backdrop from '../Backdrop/Backdrop'
+import React, { useEffect } from 'react'
+import { Container } from 'react-bootstrap'
+import { connect } from 'react-redux'
 
-import store from '../../Store'
-import { Provider } from 'react-redux'
+import PageFooter from '../Footer'
+import EditDetails from '../EditDetails'
+import MainHeader from '../MainHeader'
+import MainFooter from '../MainFooter'
+import Entries from '../Entries'
+import NewEntry from '../NewEntry'
+import EntryDetails from '../EntryDetails'
+import Login from '../Login'
+// dispatch
+import { changePage } from '../../Actions/pages'
+import { getAllJournals } from '../../Actions'
+import { getEmailProfiles as getAllProfiles } from '../../Actions/emailProfiles'
 
+// styles
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.scss'
 
-import MainHeader from '../MainHeader';
-// import MainFooter from "./src/components/MainFooter";
+// styles
+import 'bootstrap/dist/css/bootstrap.min.css'
 
+// consts
+import { Pages } from '../../Reducers/activePageReducer'
 
-// const App = () => {
-//   return (
-//     <>
-//       <Container>
-//         <MainHeader />
-//         <MainFooter />
-//       </Container>
-//     </>
-//   );
-// };
-
-// export default App;
-
-class App extends Component {
-
-  state = {
-    sideDrawerOpen: false,
+const mapStateToProps = (state) => {
+  return {
+    activePage: state.activePage
   }
-
-  ///Menu toggler 
-  drawerToggleClickHandler = () => {
-    this.setState((prevState) => {
-      return { sideDrawerOpen: !prevState.sideDrawerOpen }
-    })
-  }
-
-  backdropClickHandler = () => {
-    this.setState({ sideDrawerOpen: false })
-  }
-
-
-  render() {
-
-    //Menu backdrop
-    let backdrop;
-    if (this.state.sideDrawerOpen) {
-      backdrop = <Backdrop click={this.backdropClickHandler} />
-    }
-
-
-    return (
-      <Provider store={store}>
-        <Container className="App">
-          <MainHeader drawerClickHandler={this.drawerToggleClickHandler} />
-          <SideDrawer show={this.state.sideDrawerOpen} />
-          {backdrop}
-      {/* <MainFooter /> */}
-        </Container>
-      </Provider>
-    )
-  }
-
 }
 
-export default App;
+function App ({ activePage, changePage }) {
+  console.log('activePage', activePage, 'all pges: ', Pages)
+  return (
+    <>
+      <Container className='App'>
+        <Login>
+          <MainHeader />
+          {activePage === Pages.HOME && <Entries />}
+          {activePage === Pages.NEW_ENTRY && <NewEntry />}
+          {activePage === Pages.ENTRY_DETAILS && <EntryDetails />}
+          {activePage === Pages.EDIT_DETAILS && <EditDetails />}
+        </Login>
+      <PageFooter />
+      </Container>
+    </>
+  )
+}
 
-
+export default connect(mapStateToProps, { changePage })(App)

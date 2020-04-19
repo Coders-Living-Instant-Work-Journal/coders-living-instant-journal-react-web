@@ -1,0 +1,30 @@
+.entry-details {
+  margin-top: 150px;
+  background-color: white;
+  height: 500px;
+  width: 400px;
+  padding: 10px;
+}
+
+.entryDetail-text {
+  margin-top: 10px;
+  font-size: 1em;
+  overflow: hidden;
+  height: 320px;
+  text-align: left;
+}
+
+.entry-time {
+  font-size: 12px;
+  color: black;
+}
+
+.entry-category {
+  font-size: 2em;
+}
+
+.entry-delete-button {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}

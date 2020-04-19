@@ -1,0 +1,30 @@
+$pink: #f75584;
+body {
+  background-color: white !important;
+}
+
+.title {
+  margin-top: 200px;
+  color: $pink;
+  text-align: center;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 3em;
+  font-weight: bold;
+  color: #04BFBF;
+}
+.entry-headers {
+  color: $pink;
+  z-index: 1;
+    font-size: 2em;
+
+}
+
+.entry-text {
+  color: #2e0259;
+  font-size: 1.5em;
+}
+
+.entry-container {
+  background-color: white;;
+  height: 500px;
+}
