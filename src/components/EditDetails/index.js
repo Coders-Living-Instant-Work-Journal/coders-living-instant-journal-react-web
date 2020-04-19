@@ -30,12 +30,6 @@ const EditDetails = ({ entries, entryId, updateEntry, changePage }) => {
     return null
   }
   const onSubmit = (data) => {
-    // const updatedEntry = {
-    //   ...entry,
-    //   category: data.category,
-    //   text: data.text
-    // }
-    console.log('data in the form', data)
     updateEntry(data)
     reset()
     changePage('HOME')

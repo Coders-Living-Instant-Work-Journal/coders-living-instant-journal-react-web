@@ -28,7 +28,6 @@ const NewEntry = ({ entries, getAllEntries, changePage, createEntry, journals, g
     await createEntry(data)
     reset()
     changePage('HOME')
-    // console.log('submit data', data)
   }
 
   const entriesFetcher = () => {

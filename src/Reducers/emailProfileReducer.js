@@ -1,5 +1,4 @@
-export default function emailProfileReducer (state = [], action) {
-  console.log('action payload', action.payload, action.type)
+export default function emailProfileReducer(state = [], action) {
   switch (action.type) {
     case 'CREATE_EMAIL_PROFILE':
       return [...state, action.payload]

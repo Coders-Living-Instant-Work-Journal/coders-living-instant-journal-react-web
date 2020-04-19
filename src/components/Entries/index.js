@@ -31,12 +31,11 @@ const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails,
   }
   // eslint-disable-next-line
   useEffect(() => entryFetcher(), []);
-  console.log('entriessss', entries)
   return (
     <>
       <Container className="entry-container">
-      <h1 className='title'>Journal Entries</h1>
-      <MainFooter />
+        <h1 className='title'>Journal Entries</h1>
+        <MainFooter />
         {entries[0] === 'No entries found.' ? "You don't have any entries for this journal." : entries.map((entry) => (
           <>
 
@@ -45,7 +44,6 @@ const Entries = ({ entries, getAllEntries, activePage, changePage, entryDetails,
               onClick={() => {
                 changePage('ENTRY_DETAILS')
                 passEntryId(entry._id)
-                // console.log('entry id', entry._id)
               }}
             >
               <Row className='entry-headers' key={uuidv4()}>
